@@ -1,0 +1,24 @@
+<% @page_title = "Edit Player" %>
+
+
+<section id="sidebar">
+	<p>Actions:</p>
+	<p style="text-align: center;">
+		<%= link_to("Cancel", player_path(@player), :class => 'btn-red') %> <br>
+	</p>
+</section>
+
+<section id="main">
+	<div class="player edit">
+
+	  <%= form_for(@player) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update Player", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+</section>

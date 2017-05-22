@@ -1,0 +1,16 @@
+<%= error_messages_for(f.object) %>
+
+<table summary="Player form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= f.text_field(:email) %></td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><%= f.text_field(:phone) %></td>
+  </tr>
+</table>

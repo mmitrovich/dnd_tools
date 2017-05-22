@@ -1,4 +1,7 @@
-<% @page_title = "Players" %>
+<% 
+	@page_title = "Players" 
+	@menu_item = "Players"
+%>
 
 
 <section id="sidebar">
@@ -9,12 +12,13 @@
 </section>
 
 	<section id="main">
+	<p><%= render_breadcrumbs %></p>
 	
 		<h2>Current Players:</h2>
 		<% if @players.nil? %>
 			<p>No players currently exist...</p>
 		<% else %>
-		
+
 		<table id="player-table">
 			<tr>
 				<th>Name</th>

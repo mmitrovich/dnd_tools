@@ -1,4 +1,7 @@
-<% @page_title = @player.name %>
+<% 
+	@page_title = @player.name 
+	@menu_item = "Players"
+%>
 
 
 <section id="sidebar">
@@ -12,6 +15,11 @@
 </section>
 
 	<section id="main">
+		<p><%= render_breadcrumbs %></p>
+
+		<% unless flash[:notice].nil? %>
+			<p class="notify"><%= flash[:notice] %></p>
+		<% end %>
 	
 		<div id="player_details">
 			<h2><%= @player.name %></h2>
@@ -20,10 +28,15 @@
 				<%= @player.phone %>
 			</p>
 		</div>
-		<% for page in @page.ancestors.reverse %>
-			<%= link_to h(page.name), page %> &gt;
-		<% end %>
 
-	
+		<div id="player_characters">
+			<h3>Characters:</h3>
+			<p>No characters currently exist for this player...</p>
+
+			<p>
+				<%= link_to("Add Character", player_path(@player), :class => "btn-green") %>
+			</p>
+
+		</div>
 
 	</section>
