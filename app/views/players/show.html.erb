@@ -1,0 +1,29 @@
+<% @page_title = @player.name %>
+
+
+<section id="sidebar">
+	<p>Actions:</p>
+	<p style="text-align: center;">
+		<%= link_to("Edit", edit_player_path(@player), :class => 'btn-green') %> <br>
+	</p>
+	<p style="text-align: center;">
+		<%= link_to("Delete", delete_player_path(@player), :class => 'btn-red') %>
+	</p>
+</section>
+
+	<section id="main">
+	
+		<div id="player_details">
+			<h2><%= @player.name %></h2>
+			<p>
+				<%= @player.email %><br></%>
+				<%= @player.phone %>
+			</p>
+		</div>
+		<% for page in @page.ancestors.reverse %>
+			<%= link_to h(page.name), page %> &gt;
+		<% end %>
+
+	
+
+	</section>

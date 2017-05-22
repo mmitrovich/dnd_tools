@@ -15,8 +15,9 @@ body {
 #main-content {
 	background: #fff;
 	margin: 0;
-	padding: 5px;
+	padding: 0px;
 	border: 1px solid #000;
+	clear:both;
 }
 
 
@@ -44,6 +45,7 @@ header#site-header {
 			    text-align: center;
 			    text-decoration: none;
 			    padding: .5em;
+			    color: #000;
 			}
 			a:hover {
 				background-color: #888;
@@ -52,3 +54,29 @@ header#site-header {
 	}
 }
 
+.Players #main-nav > ul > li.Players a {
+	background-color: #4682B4;
+	color: #fff;
+}
+
+section#sidebar {
+	float: left;
+	width: 100px;
+	padding: 5px;
+}
+
+section#main {
+	padding: 15px;
+	margin-left: 100px;
+	border-left: 2px solid #999;
+}
+
+#player_details {
+	border-bottom: 1px solid #999;
+	h2 {
+		margin: 0;
+	}
+	p {
+		margin: 0;
+	}
+}
