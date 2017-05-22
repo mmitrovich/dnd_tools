@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DndTools</title>
+    <title>
+    	DndTools
+    	<%= 
+    		unless @page_title.nil?
+    			" | #{@page_title}"
+    		end
+    	%> 
+	</title>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+
+
+	<body>
+
+		<header id="site-header">
+			<h1>DND Tools</h1>
+			<nav id="main-nav">
+				<ul>
+					<li><a href="#">Players</a></li>
+					<li><a href="#">Campaigns</a></li>
+					<li><a href="#">Feats</a></li>
+					<li><a href="#">Spells</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div style="clear:both;"></div>
+		
+		<section id="main-content">
+
+			<%= yield %>
+		
+		</section>
+
+
+	</body>
+  </div>
 </html>
