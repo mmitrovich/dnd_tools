@@ -13,12 +13,14 @@
 
 	<section id="main">
 	<p><%= render_breadcrumbs %></p>
-	
+	<%= render(:partial => 'application/flash_notify') %>
+
+
 		<h2>Current Players:</h2>
 		<% if @players.count == 0 %>
 			<p>No players currently exist...</p>
 		<% else %>
-
+		
 		<table id="player-table">
 			<tr>
 				<th>Name</th>

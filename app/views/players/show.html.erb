@@ -16,16 +16,7 @@
 
 	<section id="main">
 		<p><%= render_breadcrumbs %></p>
-
-		<% unless flash[:notice].nil? %>
-		<p>
-			<%= flash[:notice] %>
-		</p>
-		<% end %>
-
-		<% unless flash[:notice].nil? %>
-			<p class="notify"><%= flash[:notice] %></p>
-		<% end %>
+		<%= render(:partial => 'application/flash_notify') %>
 	
 		<div id="player_details">
 			<h2><%= @player.name %></h2>
