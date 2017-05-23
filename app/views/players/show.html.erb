@@ -18,6 +18,12 @@
 		<p><%= render_breadcrumbs %></p>
 
 		<% unless flash[:notice].nil? %>
+		<p>
+			<%= flash[:notice] %>
+		</p>
+		<% end %>
+
+		<% unless flash[:notice].nil? %>
 			<p class="notify"><%= flash[:notice] %></p>
 		<% end %>
 	

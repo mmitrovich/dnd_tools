@@ -1,0 +1,25 @@
+<% @page_title = "Add Player" %>
+<% @menu_item = "Players" %>
+
+
+<section id="sidebar">
+	<p>Actions:</p>
+	<p style="text-align: center;">
+		<%= link_to("Cancel", players_path, :class => 'btn-red') %> <br>
+	</p>
+</section>
+
+<section id="main">
+	<div class="player add">
+
+	  <%= form_for(@player) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Create Player", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+</section>

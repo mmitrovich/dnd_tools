@@ -15,7 +15,7 @@
 	<p><%= render_breadcrumbs %></p>
 	
 		<h2>Current Players:</h2>
-		<% if @players.nil? %>
+		<% if @players.count == 0 %>
 			<p>No players currently exist...</p>
 		<% else %>
 

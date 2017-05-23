@@ -13,6 +13,21 @@ class PlayersController < ApplicationController
 		add_breadcrumb "players", players_path
 	end
 
+	def new
+		@player = Player.new
+	end
+
+	def create
+		@player = Player.new(player_params)
+		if @player.save
+			flash[:notice] = "Player created!"
+			redirect_to player_path(@player)
+		else
+			render 'new'
+		end
+	end
+
+
 	def edit
 		@player = Player.find(params[:id])
 	end
