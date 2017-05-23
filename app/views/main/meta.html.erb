@@ -3,18 +3,12 @@
 
 
 <section id="sidebar">
-	<p>Menu:</p>
-	<p>
-		<%= link_to("Classes", players_path) %>
-	</p>
+	<%= render(:partial => 'main/meta_menu') %>
 </section>
 
 	<section id="main">
 	<p><%= render_breadcrumbs %></p>
 	<%= render(:partial => 'application/flash_notify') %>
-
-
-		
 
 	</section>
 	<div style="clear:both;"></div>

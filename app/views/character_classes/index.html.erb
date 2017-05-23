@@ -1,2 +1,42 @@
-<h1>CharacterClasses#index</h1>
-<p>Find me in app/views/character_classes/index.html.erb</p>
+<% 
+	@page_title = "Classes" 
+	@menu_item = "Meta"
+%>
+
+
+<section id="sidebar">
+	<%= render(:partial => 'main/meta_menu') %>
+</section>
+
+	<section id="main">
+	<p><%= render_breadcrumbs %></p>
+	<%= render(:partial => 'application/flash_notify') %>
+
+
+		<h2>Character Classes:</h2>
+		<% if @classes.count == 0 %>
+			<p>No classes currently exist...</p>
+		<% else %>
+
+		
+		<table id="classes-table">
+			<tr>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+			<% @classes.each do |char_class| %>
+				<tr>
+					<td><%= char_class.name %></td>
+					<td>
+						<%= link_to("edit", edit_character_class_path(char_class)) %> / 
+						<%= link_to "Delete", char_class, {:method => :delete} %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+		<% end %>
+		
+		<p>
+			<%= link_to("Add Class", new_character_class_path, :class => "btn-green") %>
+		</p>
+	</section>

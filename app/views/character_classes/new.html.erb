@@ -1,2 +1,22 @@
-<h1>CharacterClasses#new</h1>
-<p>Find me in app/views/character_classes/new.html.erb</p>
+<% @page_title = "Add Class" %>
+<% @menu_item = "Meta" %>
+
+
+<section id="sidebar">
+	<%= render(:partial => 'main/meta_menu') %>
+</section>
+
+<section id="main">
+	<div class="class add">
+
+	  <%= form_for(@character_class) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Add Class", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+</section>

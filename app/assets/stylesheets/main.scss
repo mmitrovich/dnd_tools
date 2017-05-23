@@ -54,7 +54,8 @@ header#site-header {
 	}
 }
 
-.Players #main-nav > ul > li.Players a {
+.Players #main-nav > ul > li.Players a,
+.Meta #main-nav > ul > li.Meta a {
 	background-color: #4682B4;
 	color: #fff;
 }
