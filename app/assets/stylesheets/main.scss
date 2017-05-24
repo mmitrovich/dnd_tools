@@ -31,39 +31,14 @@ header#site-header {
 	h1 {
 		margin: 0 0 .5em 0;
 	}
-	#main-nav ul {
-	    list-style-type: none;
-	    margin: 0;
-	    padding: 0;
-	    
-	    li {
-	    	float: left;
-	    	background-color: #ccc;
-	    	border: 1px solid #000;
-	    	a {
-			    display: block;
-			    text-align: center;
-			    text-decoration: none;
-			    padding: .5em;
-			    color: #000;
-			}
-			a:hover {
-				background-color: #888;
-			}
-		}
-	}
 }
 
-.Players #main-nav > ul > li.Players a,
-.Meta #main-nav > ul > li.Meta a {
-	background-color: #4682B4;
-	color: #fff;
-}
+
 
 section#sidebar {
 	float: left;
 	width: 100px;
-	padding: 5px;
+	padding: 0px;
 }
 
 section#main {

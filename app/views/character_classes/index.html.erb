@@ -5,8 +5,10 @@
 
 
 <% content_for :sidebar do %>
+<div class="classes">
 		<%= render(:partial => 'main/meta_menu') %>
-<% end %>>
+</div>
+<% end %>
 
 <% content_for :main_content do %>
 	<p><%= render_breadcrumbs %></p>
@@ -39,5 +41,5 @@
 		<p>
 			<%= link_to("Add Class", new_character_class_path, :class => "btn-green") %>
 		</p>
-	</section>
+
 	<% end %>
