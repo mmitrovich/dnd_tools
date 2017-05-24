@@ -3,7 +3,11 @@
 
 
 <% content_for :sidebar do %>
-	<%= render(:partial => 'main/meta_menu') %>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", character_classes_path, :class => 'btn-red') %>
+		</li>
+	</ul>
 <% end %>
 
 <% content_for :main_content do %>

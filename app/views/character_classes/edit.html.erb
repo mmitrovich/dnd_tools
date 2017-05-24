@@ -1,2 +1,26 @@
-<h1>CharacterClasses#edit</h1>
-<p>Find me in app/views/character_classes/edit.html.erb</p>
+<% @page_title = "Edit Class" %>
+<% @menu_item = "Meta" %>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", character_classes_path, :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="class edit">
+
+	  <%= form_for(@character_class) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

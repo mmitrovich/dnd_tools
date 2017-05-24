@@ -5,13 +5,14 @@
 
 
 <% content_for :sidebar do %>
-	<p>Actions:</p>
-	<p style="text-align: center;">
-		<%= link_to("Edit", edit_player_path(@player), :class => 'btn-green') %> <br>
-	</p>
-	<p style="text-align: center;">
-		<%= link_to("Delete", delete_player_path(@player), :class => 'btn-red') %>
-	</p>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Edit", edit_player_path(@player), :class => 'btn-green') %>
+		</li>
+		<li>
+			<%= link_to("Delete", delete_player_path(@player), :class => 'btn-red') %>
+		</li>
+	</ul>
 <% end %>
 
 <% content_for :main_content do %>

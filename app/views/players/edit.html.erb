@@ -1,11 +1,13 @@
 <% @page_title = "Edit Player" %>
+<% @menu_item = "Players" %>
 
 
 <% content_for :sidebar do %>
-	<p>Actions:</p>
-	<p style="text-align: center;">
-		<%= link_to("Cancel", player_path(@player), :class => 'btn-red') %> <br>
-	</p>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", player_path(@player), :class => 'btn-red') %>
+		</li>
+	</ul>
 <% end %>
 
 <% content_for :main_content do %>

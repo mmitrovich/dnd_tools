@@ -17,6 +17,7 @@ class CharacterClassesController < ApplicationController
 
 	def create
 		@character_class = CharacterClass.new(class_params)
+		@character_class.name.capitalize!
 		if @character_class.save
 			flash[:notice] = "Class added..."
 			redirect_to(character_classes_path)
@@ -26,9 +27,17 @@ class CharacterClassesController < ApplicationController
 	end
 
 	def edit
+		@character_class = CharacterClass.find(params[:id])
 	end
 
 	def update
+		@character_class = CharacterClass.find(params[:id])
+		if @character_class.update_attributes(class_params)
+			flash[:notice] = "Class updated..."
+			redirect_to(character_classes_path)
+		else
+			render('edit')
+		end
 	end
 
 	def destroy
