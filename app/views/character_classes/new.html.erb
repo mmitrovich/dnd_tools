@@ -2,11 +2,11 @@
 <% @menu_item = "Meta" %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<%= render(:partial => 'main/meta_menu') %>
-</section>
+<% end %>
 
-<section id="main">
+<% content_for :main_content do %>
 	<div class="class add">
 
 	  <%= form_for(@character_class) do |f| %>
@@ -19,4 +19,4 @@
 
 	  <% end %>
 	</div>
-</section>
+<% end %>

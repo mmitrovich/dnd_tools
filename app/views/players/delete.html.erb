@@ -3,14 +3,14 @@
 %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<p>Actions:</p>
 	<p>
 		<%= link_to("Cancel", player_path(@player), :class => 'btn-red') %>
 	</p>
-</section>
+<% end %>
 
-	<section id="main">
+<% content_for :main_content do %>
 		<div style="text-align: center;">
 			<%= form_for(@player, :method => 'delete') do |f| %>
 				<h2>
@@ -27,4 +27,4 @@
 				</p>
 			<% end %>
 		</div>
-	</section>
+<% end %>

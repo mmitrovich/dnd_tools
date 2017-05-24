@@ -2,13 +2,13 @@
 <% @menu_item = "Meta" %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<%= render(:partial => 'main/meta_menu') %>
-</section>
+<% end %>
 
-	<section id="main">
+<% content_for :main_content do %>
 	<p><%= render_breadcrumbs %></p>
 	<%= render(:partial => 'application/flash_notify') %>
 
-	</section>
+<% end %>
 	<div style="clear:both;"></div>

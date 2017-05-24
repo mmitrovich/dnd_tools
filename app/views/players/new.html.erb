@@ -2,14 +2,14 @@
 <% @menu_item = "Players" %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<p>Actions:</p>
 	<p style="text-align: center;">
 		<%= link_to("Cancel", players_path, :class => 'btn-red') %> <br>
 	</p>
-</section>
+<% end %>
 
-<section id="main">
+<% content_for :main_content do %>
 	<div class="player add">
 
 	  <%= form_for(@player) do |f| %>
@@ -22,4 +22,4 @@
 
 	  <% end %>
 	</div>
-</section>
+<% end %>

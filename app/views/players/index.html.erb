@@ -4,14 +4,14 @@
 %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<p>Actions:</p>
 	<p>
 		<%= link_to("Add Player", new_player_path, :class => 'btn-green') %>
 	</p>
-</section>
+<% end %>
 
-	<section id="main">
+<% content_for :main_content do %>
 	<p><%= render_breadcrumbs %></p>
 	<%= render(:partial => 'application/flash_notify') %>
 
@@ -38,4 +38,4 @@
 		</table>
 		<% end %>
 
-	</section>
+<% end %>

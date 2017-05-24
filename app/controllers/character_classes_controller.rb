@@ -1,5 +1,5 @@
 class CharacterClassesController < ApplicationController
-	skip_before_filter :verify_authenticity_token, :only => :destroy
+	skip_before_action :verify_authenticity_token, :only => :destroy
 
 	layout 'main'
 

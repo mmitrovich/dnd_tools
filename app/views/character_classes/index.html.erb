@@ -4,11 +4,11 @@
 %>
 
 
-<section id="sidebar">
-	<%= render(:partial => 'main/meta_menu') %>
-</section>
+<% content_for :sidebar do %>
+		<%= render(:partial => 'main/meta_menu') %>
+<% end %>>
 
-	<section id="main">
+<% content_for :main_content do %>
 	<p><%= render_breadcrumbs %></p>
 	<%= render(:partial => 'application/flash_notify') %>
 
@@ -29,7 +29,7 @@
 					<td><%= char_class.name %></td>
 					<td>
 						<%= link_to("edit", edit_character_class_path(char_class)) %> / 
-						<%= link_to "Delete", char_class, {:method => :delete} %>
+						<%= link_to "delete", char_class, {:method => :delete} %>
 					</td>
 				</tr>
 			<% end %>
@@ -40,3 +40,4 @@
 			<%= link_to("Add Class", new_character_class_path, :class => "btn-green") %>
 		</p>
 	</section>
+	<% end %>

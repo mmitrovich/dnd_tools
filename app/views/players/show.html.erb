@@ -4,7 +4,7 @@
 %>
 
 
-<section id="sidebar">
+<% content_for :sidebar do %>
 	<p>Actions:</p>
 	<p style="text-align: center;">
 		<%= link_to("Edit", edit_player_path(@player), :class => 'btn-green') %> <br>
@@ -12,9 +12,9 @@
 	<p style="text-align: center;">
 		<%= link_to("Delete", delete_player_path(@player), :class => 'btn-red') %>
 	</p>
-</section>
+<% end %>
 
-	<section id="main">
+<% content_for :main_content do %>
 		<p><%= render_breadcrumbs %></p>
 		<%= render(:partial => 'application/flash_notify') %>
 	
@@ -35,5 +35,4 @@
 			</p>
 
 		</div>
-
-	</section>
+<% end %>
