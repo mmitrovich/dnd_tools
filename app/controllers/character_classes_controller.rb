@@ -4,7 +4,7 @@ class CharacterClassesController < ApplicationController
 	layout 'main'
 
 	def index
-		@classes = CharacterClass.all
+		@classes = CharacterClass.sorted
 	end
 
 	def show
