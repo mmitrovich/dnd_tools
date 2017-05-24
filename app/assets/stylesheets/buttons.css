@@ -5,9 +5,9 @@
   background-image: -ms-linear-gradient(top, #009924, #00660f);
   background-image: -o-linear-gradient(top, #009924, #00660f);
   background-image: linear-gradient(to bottom, #009924, #00660f);
-  -webkit-border-radius: 10;
+/*   -webkit-border-radius: 10;
   -moz-border-radius: 10;
-  border-radius: 10px;
+  border-radius: 10px; */
   color: #ffffff;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
@@ -30,9 +30,9 @@
   background-image: -ms-linear-gradient(top, #d93434, #940505);
   background-image: -o-linear-gradient(top, #d93434, #940505);
   background-image: linear-gradient(to bottom, #d93434, #940505);
-  -webkit-border-radius: 10;
+/*   -webkit-border-radius: 10;
   -moz-border-radius: 10;
-  border-radius: 10px;
+  border-radius: 10px; */
   color: #ffffff;
   padding: 5px 10px 5px 10px;
   text-decoration: none;

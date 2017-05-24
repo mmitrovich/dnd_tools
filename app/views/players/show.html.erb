@@ -32,7 +32,7 @@
 			<p>No characters currently exist for this player...</p>
 
 			<p>
-				<%= link_to("Add Character", player_path(@player), :class => "btn-green") %>
+				<%= link_to("Add Character", new_character_path(:player_id => @player.id), :class => "btn-green") %>
 			</p>
 
 		</div>
