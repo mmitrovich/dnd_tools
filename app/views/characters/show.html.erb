@@ -1,2 +1,35 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<% 
+	@page_title = @player.name 
+%>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Edit", edit_character_path(@character,:player_id => @player.id), :class => 'btn-green') %>
+		</li>
+		<li>
+			<%= link_to("Delete", delete_character_path(@character, :player_id => @player.id), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+		<p><%= render_breadcrumbs %></p>
+		<%= render(:partial => 'application/flash_notify') %>
+	
+		<div id="player_details">
+			<h2><%= @player.name %></h2>
+			<p>
+				<%= @player.email %><br></%>
+				<%= @player.phone %>
+			</p>
+		</div>
+
+		<div id="character_details">
+			<h2><%= @character.name %></h2>
+			<p>
+				<%= @character.level.ordinalize + ' level ' + @character.race + ' ' + CharacterClass.find(@character.character_class_id).name %> 
+			</p>
+		</div>
+<% end %>

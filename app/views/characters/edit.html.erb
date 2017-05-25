@@ -1,2 +1,26 @@
-<h1>Characters#edit</h1>
-<p>Find me in app/views/characters/edit.html.erb</p>
+<% @page_title = "Add Character" %>
+<% @menu_item = "Players" %>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", character_path(@character, :player_id => @player.id), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="character edit">
+
+	  <%= form_for(@character, :url => character_path(@character, :player_id => @player.id)) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update Character", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

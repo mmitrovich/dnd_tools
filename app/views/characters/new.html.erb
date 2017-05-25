@@ -13,12 +13,12 @@
 <% content_for :main_content do %>
 	<div class="character add">
 
-	  <%= form_for(@character) do |f| %>
+	  <%= form_for(@character, :url => characters_path(:player_id => @player.id)) do |f| %>
 
-	    <!-- <%= render(:partial => 'form', :locals => {:f => f}) %> -->
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
 
 	    <div class="form-buttons">
-	      <%= f.submit("Add Class", :class => "btn-green") %>
+	      <%= f.submit("Add Character", :class => "btn-green") %>
 	    </div>
 
 	  <% end %>

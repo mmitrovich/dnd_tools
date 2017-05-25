@@ -1,0 +1,22 @@
+<%= error_messages_for(f.object) %>
+
+<table summary="Character form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Race</th>
+    <td><%= f.text_field(:race) %></td>
+  </tr>
+  <tr>
+    <th>Class</th>
+    <td><%= f.collection_select(:character_class_id, CharacterClass.sorted, :id, :name) %></td>
+  </tr>
+  <tr>
+    <th>level</th>
+    <td><%= f.select :level, (1..20) %></td>
+  </tr>
+  
+</table>
+

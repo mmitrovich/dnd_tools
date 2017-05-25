@@ -29,8 +29,23 @@
 
 		<div id="player_characters">
 			<h3>Characters:</h3>
-			<p>No characters currently exist for this player...</p>
 
+			<% if @player.characters.count == 0 %>
+			<p>No characters currently exist for this player...</p>
+			<% else %>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Details</th>
+					</tr>
+				<% @player.characters.each do |char| %>
+					<tr>
+						<td><%= link_to(char.name, character_path(char, :player_id => @player.id) )%></td>
+						<td><%= char.level.ordinalize + ' level ' + char.race + ' ' + CharacterClass.find(char.character_class_id).name %> </td>
+					</tr>
+				<% end %>
+				</table>
+			<% end %>
 			<p>
 				<%= link_to("Add Character", new_character_path(:player_id => @player.id), :class => "btn-green") %>
 			</p>

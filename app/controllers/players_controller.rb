@@ -6,11 +6,13 @@ class PlayersController < ApplicationController
 
 	def index
 		@players = Player.sorted
+		add_breadcrumb "Players"
 	end
 
 	def show
 		@player = Player.find(params[:id])
-		add_breadcrumb "players", players_path
+		add_breadcrumb "Players", players_path
+		add_breadcrumb @player.name
 	end
 
 	def new

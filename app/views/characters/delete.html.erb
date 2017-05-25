@@ -1,0 +1,27 @@
+<% 
+	@page_title = "Confirm Delete" 
+%>
+
+
+<% content_for :sidebar do %>
+
+<% end %>
+
+<% content_for :main_content do %>
+		<div style="text-align: center;">
+			<%= form_for(@character, :url => character_path(@character, :player_id => @player.id), :method => 'delete') do |f| %>
+				<h2>
+					Are you sure you want to delete this character:
+				</h2>
+				<h2>
+					<%= f.object.name %>?
+				</h2>
+				<h2>
+					Note:  This cannot be undone!
+				</h2>
+				<p>
+					<%= f.submit("Yes, delete!", :class => 'btn-green') %>
+				</p>
+			<% end %>
+		</div>
+<% end %>
