@@ -1,2 +1,26 @@
-<h1>Characters#new</h1>
-<p>Find me in app/views/characters/new.html.erb</p>
+<% @page_title = "Add Character" %>
+<% @menu_item = "Players" %>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", player_path(@player), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="character add">
+
+	  <%= form_for(@character) do |f| %>
+
+	    <!-- <%= render(:partial => 'form', :locals => {:f => f}) %> -->
+
+	    <div class="form-buttons">
+	      <%= f.submit("Add Class", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

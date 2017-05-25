@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523220234) do
+ActiveRecord::Schema.define(version: 20170525001526) do
 
   create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170523220234) do
   create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "race"
-    t.string "class"
+    t.string "character_class"
     t.integer "level"
     t.integer "player_id"
     t.datetime "created_at", null: false
