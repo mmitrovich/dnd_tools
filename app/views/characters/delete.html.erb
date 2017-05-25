@@ -22,6 +22,11 @@
 				<p>
 					<%= f.submit("Yes, delete!", :class => 'btn-green') %>
 				</p>
+				<p>
+					<%= link_to("Cancel", character_path(@character, :player_id => @player.id), :class => "btn-red") %>
+				</p>
+				
 			<% end %>
 		</div>
+
 <% end %>
