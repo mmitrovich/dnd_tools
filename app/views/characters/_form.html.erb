@@ -11,7 +11,7 @@
   </tr>
   <tr>
     <th>Class</th>
-    <td><%= f.collection_select(:character_class_id, CharacterClass.sorted, :id, :name) %></td>
+    <td><%= f.collection_select(:character_class_id, CharacterClass.sorted, :id, :name, :prompt => "Choose a class") %></td>
   </tr>
   <tr>
     <th>level</th>

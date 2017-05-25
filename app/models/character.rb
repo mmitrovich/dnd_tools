@@ -7,6 +7,8 @@ class Character < ApplicationRecord
 		:presence => true
 	validates :level,
 		:presence => true
+	validates :character_class_id,
+		:presence => true
 
 	belongs_to :player
 end
