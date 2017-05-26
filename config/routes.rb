@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
 
+  get 'spells/index'
+
+  get 'spells/show'
+
+  get 'spells/new'
+
+  get 'spells/edit'
+
+  get 'spells/delete'
+
 	root 'main#index'
 	get '/meta', to: 'main#meta'
 
