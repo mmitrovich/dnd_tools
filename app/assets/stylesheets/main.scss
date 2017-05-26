@@ -97,3 +97,26 @@ section#main {
 .field_with_errors {
 	border: 2px solid red;
 }
+
+
+
+#spells_and_feats {
+	padding: 15px;
+	border: 1px solid #000;
+
+	h4 {margin: 0;}
+
+	#spellbooks, #feats{
+		width: 45%;
+		border: 1px solid #000;
+		padding: 15px;
+		background: #ccc;
+	}
+	#spellbooks {
+		float: right;
+	}
+
+	#feats {
+		float: left;
+	}
+}
