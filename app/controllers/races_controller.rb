@@ -1,6 +1,7 @@
 class RacesController < ApplicationController
 	skip_before_action :verify_authenticity_token, :only => :destroy
 
+	layout 'main'
 
 	def index
 		@races = Race.sorted
@@ -49,7 +50,7 @@ class RacesController < ApplicationController
 	private
 
 	def race_params
-		params.require(:character_class).permit(
+		params.require(:race).permit(
 			:name
 		)
 	end

@@ -22,12 +22,11 @@ ActiveRecord::Schema.define(version: 20170525230621) do
   create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "race"
-    t.integer "character_class_id"
+    t.string "character_class"
     t.integer "level"
     t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["character_class_id"], name: "index_characters_on_character_class_id"
     t.index ["player_id"], name: "index_characters_on_player_id"
   end
 

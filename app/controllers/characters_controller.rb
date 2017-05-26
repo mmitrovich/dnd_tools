@@ -67,7 +67,7 @@ class CharactersController < ApplicationController
 		params.require(:character).permit(
 			:name,
 			:race,
-			:character_class_id,
+			:character_class,
 			:level
 		)
 	end

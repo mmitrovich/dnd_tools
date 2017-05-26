@@ -29,7 +29,7 @@
 		<div id="character_details">
 			<h2><%= @character.name %></h2>
 			<p>
-				<%= @character.level.ordinalize + ' level ' + @character.race + ' ' + CharacterClass.find(@character.character_class_id).name %> 
+				<%= @character.summary %> 
 			</p>
 		</div>
 <% end %>

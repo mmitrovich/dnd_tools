@@ -41,7 +41,7 @@
 				<% @player.characters.each do |char| %>
 					<tr>
 						<td><%= link_to(char.name, character_path(char, :player_id => @player.id) )%></td>
-						<td><%= char.level.ordinalize + ' level ' + char.race + ' ' + CharacterClass.find(char.character_class_id).name %> </td>
+						<td><%= char.summary %> </td>
 					</tr>
 				<% end %>
 				</table>
