@@ -37,7 +37,18 @@
 			
 			<div id="spellbooks">
 				<h4>Spell Books:</h4>
-				
+				<% if @character.spell_books.count == 0 %>
+				<p>
+					No Spellbooks have been created for this character.
+				</p>
+				<% else %>
+				<ul>
+					<% @character.spell_books.each do |book| %>
+					<li><%= book.name %></li>
+					<% end %>
+				</ul>
+				<% end %>
+				<%= link_to("Add Spellbook", new_spell_book_path(:character_id => @character.id), :class => "btn-green") %>
 			</div>
 
 			<div id="feats">

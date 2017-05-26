@@ -13,5 +13,6 @@ class Player < ApplicationRecord
 
 	has_many :characters
 	
+	
 	scope :sorted, lambda { order("name ASC") }
 end
