@@ -1,0 +1,60 @@
+<%= error_messages_for(f.object) %>
+
+
+
+
+
+<table summary="Spell form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>level</th>
+    <td><%= f.select :level, (0..7) %></td>
+  </tr>
+  <tr>
+    <th>School</th>
+    <td><%= f.select :school, Spell.schools %></td>
+  </tr>
+  <tr>
+    <th>Casting Time</th>
+    <td><%= f.text_field(:casting_time) %></td>
+  </tr>
+  <tr>
+    <th>Range</th>
+    <td><%= f.text_field(:range) %></td>
+  </tr>
+  <tr>
+    <th>Components</th>
+    <td><%= f.text_field(:components) %></td>
+  </tr>
+  <tr>
+    <th>Duration</th>
+    <td><%= f.text_field(:duration) %></td>
+  </tr>
+
+    
+
+  <tr>
+    <th>Description</th>
+    <td>
+    <%= f.hidden_field(:description) %>
+      <div id="description">
+        <%= raw sanitize @spell.description, tags: %w(strong em br p), attributes: %w(href) || "Enter a description..." %>
+      </div>
+
+        <!-- Include the Quill library -->
+        <script src="https://cdn.quilljs.com/1.2.4/quill.js"></script>
+        
+        <script>
+        var quill = new Quill('#description', {
+            theme: 'snow',
+
+          });
+      </script>
+    </td>
+  </tr>
+</table>
+
+<!-- WYSIWYG -->

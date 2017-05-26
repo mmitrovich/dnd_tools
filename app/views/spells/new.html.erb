@@ -1,2 +1,35 @@
-<h1>Spells#new</h1>
-<p>Find me in app/views/spells/new.html.erb</p>
+<% @page_title = "Add Spell" %>
+<% @menu_item = "Spells" %>
+
+
+<script type="text/javascript">
+  var form = document.querySelector('#new_spell.new_spell');
+  form.onsubmit = function() {
+    var spellContentInput = document.querySelector('#spell_description');
+    spellContentInput.value = quill.root.innerHTML;
+  };
+</script>
+
+
+<% content_for :sidebar do %>
+<ul id="sidebar-nav">
+	<li>
+		<%= link_to("Cancel", spells_path, :class => 'btn-red') %>
+	</li>
+</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="spell add">
+
+	  <%= form_for(@spell) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Create Spell", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

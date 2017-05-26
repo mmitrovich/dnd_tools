@@ -1,2 +1,45 @@
-<h1>Spells#show</h1>
-<p>Find me in app/views/spells/show.html.erb</p>
+<% 
+	@page_title = @spell.name 
+	@menu_item = "Spells"
+%>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Edit", edit_spell_path(@spell), :class => 'btn-green') %>
+		</li>
+		<li>
+			<%= link_to("Delete", delete_spell_path(@spell), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+		<p><%= render_breadcrumbs %></p>
+		<%= render(:partial => 'application/flash_notify') %>
+	
+		<div id="spell_details">
+			<h2><%= @spell.name %></h2>
+			<p>
+				<i><%= @spell.byline  %></i>
+			</p>
+			<p>
+				<br><strong>Casting Time:</strong> <%= @spell.casting_time %>
+			</p>
+			<p>
+				<strong>Range:</strong> <%= @spell.range %>
+			</p>
+			<p>
+				<strong>Components:</strong> <%= @spell.components %>
+			</p>
+			<p>
+				<strong>Duration:</strong> <%= @spell.duration %>
+			</p>
+			<p>
+				<br>
+				
+				<%= raw sanitize @spell.description, tags: %w(strong em p br), attributes: %w(href) %>
+			</p>
+		</div>
+<% end %>

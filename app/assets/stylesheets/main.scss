@@ -52,7 +52,8 @@ section#main {
 	min-height: 200px;
 }
 
-#player_details {
+#player_details,
+#spell_details {
 	border-bottom: 1px solid #999;
 	background: #FFA500;
 	padding: 15px;
@@ -63,6 +64,10 @@ section#main {
 	p {
 		margin: 0;
 	}
+}
+
+#spell_details {
+	background: #ddd;
 }
 
 #character_details {

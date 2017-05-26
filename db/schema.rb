@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525230621) do
+ActiveRecord::Schema.define(version: 20170526162027) do
 
   create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20170525230621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_races_on_name"
+  end
+
+  create_table "spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.integer "level"
+    t.string "school"
+    t.string "casting_time"
+    t.string "range"
+    t.string "components"
+    t.string "duration"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
