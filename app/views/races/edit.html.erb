@@ -1,0 +1,26 @@
+<% @page_title = "Edit Race" %>
+<% @menu_item = "Meta" %>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li> 
+			<%= link_to("Cancel", races_path, :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="race edit">
+
+	  <%= form_for(@race) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>
