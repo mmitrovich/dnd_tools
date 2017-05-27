@@ -18,7 +18,8 @@ class Spell < ApplicationRecord
 	validates :description,
 		description: true
 
-	
+	has_many :inscriptions
+
 	scope :sorted_name, lambda { order("name ASC") }
 	scope :sorted_level, lambda { order("level ASC name ASC") }
 
