@@ -5,7 +5,7 @@ class SpellBook < ApplicationRecord
 	validates :name,
 		:presence => true,
 		:uniqueness => {
-			:scope => :player_id,
+			:scope => :character_id,
 			:message => "must be unique"
 		}
 

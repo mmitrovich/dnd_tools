@@ -1,2 +1,29 @@
-<h1>SpellBooks#show</h1>
-<p>Find me in app/views/spell_books/show.html.erb</p>
+<% 
+	@page_title = @spellbook.name 
+%>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Edit", edit_spell_book_path(@spellbook,:character_id => @character.id), :class => 'btn-green') %>
+		</li>
+		<li>
+			<%= link_to("Delete", delete_spell_book_path(@spellbook, :character_id => @character.id), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+		<p><%= render_breadcrumbs %></p>
+		<%= render(:partial => 'application/flash_notify') %>
+	
+		<div id="spellbook_details">
+			<h2>Spellbook: <%= @spellbook.name %></h2>
+			<p>
+				<%= @spellbook.description %><br></%>
+			</p>
+		</div>
+
+
+<% end %>

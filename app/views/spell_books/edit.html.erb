@@ -1,2 +1,25 @@
-<h1>SpellBooks#edit</h1>
-<p>Find me in app/views/spell_books/edit.html.erb</p>
+<% @page_title = "Edit Spellbook" %>
+
+
+<% content_for :sidebar do %>
+<ul id="sidebar-nav">
+	<li>
+		<%= link_to("Cancel", spell_book_path(@spellbook, :character_id => @character.id), :class => 'btn-red') %>
+	</li>
+</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="spellbook edit">
+
+	  <%= form_for(@spellbook, :url => spell_book_path(@spellbook, :character_id => @character.id)) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update Spellbook", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

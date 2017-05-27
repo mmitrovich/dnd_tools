@@ -42,11 +42,14 @@
 					No Spellbooks have been created for this character.
 				</p>
 				<% else %>
-				<ul>
+				<table id="spellbook-table">
 					<% @character.spell_books.each do |book| %>
-					<li><%= book.name %></li>
+					<tr>
+						<td><%= link_to(book.name, spell_book_path(book, :character_id => @character.id)) %></td>
+						<td>Print</td>
+					</tr>
 					<% end %>
-				</ul>
+				</table>
 				<% end %>
 				<%= link_to("Add Spellbook", new_spell_book_path(:character_id => @character.id), :class => "btn-green") %>
 			</div>
