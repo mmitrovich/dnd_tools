@@ -1,7 +1,8 @@
 class SpellBook < ApplicationRecord
 
 	belongs_to :character
-	has_many :inscriptions
+	has_many :inscriptions,
+		:dependent => :destroy
 
 	validates :name,
 		:presence => true,

@@ -11,7 +11,8 @@ class Character < ApplicationRecord
 		:presence => true
 
 	belongs_to :player
-	has_many :spell_books
+	has_many :spell_books,
+		:dependent => :destroy
 
 
 	def summary

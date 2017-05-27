@@ -11,7 +11,8 @@ class Player < ApplicationRecord
 		:format => EMAIL_REGEX,
 		:allow_blank => true
 
-	has_many :characters
+	has_many :characters,
+		:dependent => :destroy
 	
 	
 	scope :sorted, lambda { order("name ASC") }
