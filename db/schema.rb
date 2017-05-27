@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527154457) do
+ActiveRecord::Schema.define(version: 20170526231907) do
 
   create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 20170527154457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_characters_on_player_id"
-  end
-
-  create_table "inscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "spell_id"
-    t.integer "spell_book_id"
-    t.integer "uses"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["spell_book_id"], name: "index_inscriptions_on_spell_book_id"
-    t.index ["spell_id"], name: "index_inscriptions_on_spell_id"
   end
 
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
