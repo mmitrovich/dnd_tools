@@ -14,11 +14,6 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :spell_books do
-		resources :inscriptions
-	end
-
-
 	resources :character_classes
 	resources :races
 

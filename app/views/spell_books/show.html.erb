@@ -32,7 +32,7 @@
 				<% else %>
 					<ul>
 					<% @spellbook.spells.each do |spell| %>
-						<li><%= spell.name %> | <%= link_to("X", uninscribe_spell_book_path(@spellbook,:character_id => @character.id), :class => 'btn-green') %></li>
+						<li><%= spell.name %> | <%= link_to("X", spell_book_inscription_path(@spellbook, :spell_id => spell.id, :character_id => @character.id), :method => :delete, class => 'btn-green') %></li>
 					<% end %>	
 					</ul>		
 				<% end %>
@@ -40,7 +40,7 @@
 
 			<div id="spell_list">
 				All Spells:
-				<%= form_for(@spellbook, :url => inscribe_spell_book_path(@spellbook, :character_id => @character.id), :method => :post) do |f| %>
+				<%= form_for(@spellbook, :url => spell_book_inscriptions_path(@spellbook, :character_id => @character.id), :method => :post) do |f| %>
 				<p>
 					<%= select_tag("inscribe_spells[]", options_for_select(Spell.all.map{|spell| [spell.name, spell.id]}), {:multiple => true, :size => 10}) %>
 					<br><%= f.submit("Inscribe", :class => "btn-green") %>
