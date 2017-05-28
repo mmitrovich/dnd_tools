@@ -1,2 +1,32 @@
-<h1>SpellBooks#delete</h1>
-<p>Find me in app/views/spell_books/delete.html.erb</p>
+<% 
+	@page_title = "Confirm Delete" 
+%>
+
+
+<% content_for :sidebar do %>
+
+<% end %>
+
+<% content_for :main_content do %>
+		<div style="text-align: center;">
+			<%= form_for(@spellbook, :url => spell_book_path(@spellbook, :character_id => @character.id), :method => 'delete') do |f| %>
+				<h2>
+					Are you sure you want to delete this spell book:
+				</h2>
+				<h2>
+					<%= f.object.name %>?
+				</h2>
+				<h2>
+					Note:  All spells will be lost!
+				</h2>
+				<p>
+					<%= f.submit("Yes, delete!", :class => 'btn-green') %>
+				</p>
+				<p>
+					<%= link_to("Cancel", spell_book_path(@spellbook, :character_id => @character.id), :class => "btn-red") %>
+				</p>
+				
+			<% end %>
+		</div>
+
+<% end %>

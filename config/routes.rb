@@ -1,25 +1,21 @@
 Rails.application.routes.draw do
 
 
+  get 'inscriptions/create'
+
+  get 'inscriptions/destroy'
+
 	root 'main#index'
 	get '/meta', to: 'main#meta'
 
-	resources :players do
+	resources :players, :characters, :spells, :spell_books do
 		member do
 			get :delete
 		end
 	end
 
-	resources :characters do
-		member do
-			get :delete
-		end
-	end
-
-	resources :spells, :spell_books do
-		member do
-			get :delete
-		end
+	resources :spell_books do
+		resources :inscriptions
 	end
 
 

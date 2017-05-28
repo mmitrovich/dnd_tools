@@ -24,6 +24,30 @@
 				<%= @spellbook.description %><br></%>
 			</p>
 		</div>
+		<div id="spellbook_spells">
+			<div id="inscribed">
+				My Spells:
+				<% if @spellbook.spells.count == 0 %>
+					<p>No spells have been inscribed</p>
+				<% else %>
+					<ul>
+					<% @spellbook.spells.each do |spell| %>
+						<li><%= spell.name %> | <%= link_to("X", uninscribe_spell_book_path(@spellbook,:character_id => @character.id), :class => 'btn-green') %></li>
+					<% end %>	
+					</ul>		
+				<% end %>
+			</div><!-- end #inscribed -->
+
+			<div id="spell_list">
+				All Spells:
+				<%= form_for(@spellbook, :url => inscribe_spell_book_path(@spellbook, :character_id => @character.id), :method => :post) do |f| %>
+				<p>
+					<%= select_tag("inscribe_spells[]", options_for_select(Spell.all.map{|spell| [spell.name, spell.id]}), {:multiple => true, :size => 10}) %>
+					<br><%= f.submit("Inscribe", :class => "btn-green") %>
+				</p>
+				<% end %>
+			</div>
+		</div>
 
 
 <% end %>

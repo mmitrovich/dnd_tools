@@ -5,7 +5,6 @@ class SpellBooksController < ApplicationController
 	layout 'main'
   	add_breadcrumb "home", :root_path
   	add_breadcrumb "Players", '\players'
-
   	
 
 	def show
@@ -25,7 +24,7 @@ class SpellBooksController < ApplicationController
 		@spellbook.character_id = @character.id
 		if @spellbook.save
 			flash[:notice] = "Spellbook created!"
-			redirect_to character_path(@character, :player_id => @player.id)
+			redirect_to spell_book_path(@spellbook, :character_id => @character.id)
 		else
 			render 'new'
 		end
@@ -46,9 +45,15 @@ class SpellBooksController < ApplicationController
 	end
 
 	def delete
+		@spellbook = SpellBook.find(params[:id])
 	end
 
-
+	def destroy
+		@spellbook = SpellBook.find(params[:id])
+		@spellbook.destroy
+		flash[:notice] = "Spellbook deleted!"
+		redirect_to character_path(@character, :player_id => @player.id)
+	end
 
 	private
 
