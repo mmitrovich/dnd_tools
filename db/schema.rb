@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528014702) do
+ActiveRecord::Schema.define(version: 20170528031329) do
 
   create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20170528014702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_characters_on_player_id"
+  end
+
+  create_table "inscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "spell_id"
+    t.integer "spell_book_id"
+    t.index ["spell_book_id"], name: "index_inscriptions_on_spell_book_id"
+    t.index ["spell_id"], name: "index_inscriptions_on_spell_id"
   end
 
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -52,13 +61,6 @@ ActiveRecord::Schema.define(version: 20170528014702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_spell_books_on_character_id"
-  end
-
-  create_table "spell_books_spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "spell_book_id", null: false
-    t.integer "spell_id", null: false
-    t.index ["spell_book_id"], name: "index_spell_books_spells_on_spell_book_id"
-    t.index ["spell_id"], name: "index_spell_books_spells_on_spell_id"
   end
 
   create_table "spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

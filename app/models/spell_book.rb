@@ -1,8 +1,9 @@
 class SpellBook < ApplicationRecord
 
 	belongs_to :character
+	has_many :inscriptions
+	has_many :spells, through :inscriptions
 	
-	has_and_belongs_to_many :spells
 
 	validates :name,
 		:presence => true,
