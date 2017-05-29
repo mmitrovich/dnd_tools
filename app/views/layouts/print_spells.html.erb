@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    	DndTools
+    	<%= 
+    		unless @page_title.nil?
+    			" | #{@page_title}"
+    		end
+    	%> 
+	</title>
+
+    <%= stylesheet_link_tag('application', media: 'all') %>
+
+  </head>
+
+
+
+
+	<body id="printable_spells">
+
+  <div id="main">
+    <h1>
+      Spellbook:<br>
+      <%= @spellbook.name %>      
+    </h1>
+    <p>
+      <%= @spellbook.description %>
+    </p>
+  </div>
+
+  <section id="printable_spell_list">
+    <% @spellbook.spells.each do |spell| %>
+
+    <div class="spell_entry">
+      <div class="spell_header">
+        <h2><%= spell.name %></h2>
+        <p><%= spell.byline %></p>
+      </div>
+      <table class="print_spell_details">
+        <tr>
+          <th>Casting Time</th>
+          <td><%= spell.casting_time %></td>
+        </tr>
+        <tr>
+          <th>Range</th>
+          <td><%= spell.range %></td>
+        </tr>
+        <tr>
+          <th>Components</th>
+          <td><%= spell.components %></td>
+        </tr>
+        <tr>
+          <th>Duration</th>
+          <td><%= spell.duration %></td>
+        </tr>
+      </table>
+      <div class="desc">
+        <%= raw sanitize spell.description, tags: %w(strong em p), attributes: %w(href) %>
+      </div>
+    </div><!-- spell_entry -->
+    <% end %>
+
+  </section>
+
+	</body>
+  </div>
+</html>

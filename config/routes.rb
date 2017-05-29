@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 		member do
 			post :inscribe
 			get :erase
+			get :print
 		end
 	end
 

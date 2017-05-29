@@ -23,6 +23,9 @@
 			<p>
 				<%= @spellbook.description %><br></%>
 			</p>
+			<p>
+				<br><%= link_to("Print", print_spell_book_path(@spellbook, :character_id => @character.id), :target => "_blank", :class => "btn-green") %>
+			</p>
 		</div>
 		<div id="spellbook_spells">
 			<div id="inscribed">

@@ -30,3 +30,71 @@
 	border: 1px solid #000;
 	background: #ddd;
 }
+
+
+
+// Printing
+
+
+	body#printable_spells {
+		background: #fff;
+		width: 100%;
+
+
+		#main {
+			page-break-after: avoid;
+			h1 {
+				margin: 1em 1em 0 15px;	
+			}
+			p {
+				margin: 0 1em 1em 15px;
+			}
+		}
+	}
+
+	#printable_spell_list {
+		max-width: 100%;
+		padding: 5px;
+		margin: 0;
+		border: none;
+		page-break-before: avoid;
+
+		
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	    -moz-column-count: 2; /* Firefox */
+	    column-count: 2;
+	    -webkit-column-break-inside: avoid;
+
+		.spell_entry {
+			border: 1px solid #000;
+			margin: 1em 0;
+			padding: 0;
+			width: 100%;
+			-webkit-column-break-inside: avoid;
+			.spell_header {
+				background: #ddd;
+				h2 {
+					margin: 0px;
+					padding: 5px 5px 0 5px;	
+				}
+				p {
+					margin: 0;
+					padding: 0 5px 5px 5px;
+				}
+			}
+			.desc {
+				padding: 5px;
+			}
+
+			table.print_spell_details {
+				th {
+					background: #fff;
+				}
+				th, td {
+					text-align: left;
+					width: auto;
+				}
+				td {width: 300px;}
+			}
+		}
+	}

@@ -65,6 +65,7 @@ class SpellsController < ApplicationController
       :level,
       :school,
       :casting_time,
+      :ritual,
       :range,
       :components,
       :duration,

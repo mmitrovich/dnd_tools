@@ -2,7 +2,8 @@ class SpellBooksController < ApplicationController
 
 	before_action :find_char_and_player
 
-	layout 'main'
+	layout :resolve_layout 
+
   	add_breadcrumb "home", :root_path
   	add_breadcrumb "Players", '\players'
   	
@@ -75,6 +76,14 @@ class SpellBooksController < ApplicationController
 		redirect_to(spell_book_path(@spellbook, :character_id => @character.id))
 	end
 
+	def print
+		@spellbook = SpellBook.find(params[:id])
+		@spells = @spellbook.spells
+	end
+
+
+
+
 	private
 
 	def find_char_and_player
@@ -89,4 +98,16 @@ class SpellBooksController < ApplicationController
 			:character_id
 		)
 	end
+
+	def resolve_layout
+		case action_name
+			when "print"
+				"print_spells"
+			else
+				"main"
+		end
+	end
+
+
+
 end

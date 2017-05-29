@@ -18,6 +18,10 @@
     <td><%= f.select :school, Spell.schools %></td>
   </tr>
   <tr>
+    <th>Ritual?</th>
+    <td><%= f.check_box :ritual %></td>
+  </tr>
+  <tr>
     <th>Casting Time</th>
     <td><%= f.text_field(:casting_time) %></td>
   </tr>

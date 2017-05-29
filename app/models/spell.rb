@@ -10,7 +10,7 @@ end
 
 
 class Spell < ApplicationRecord
-	META = ["id", "created_at", "updated_at"]
+	META = ["id", "created_at", "updated_at", "ritual"]
 	VALIDATED = Spell.attribute_names.reject{|attr| META.include?(attr)}
 
 	validates_presence_of VALIDATED
@@ -45,11 +45,17 @@ class Spell < ApplicationRecord
 	end
 
 	def byline
+		byline = ""
 		if self[:level] == 0
-			self[:school] + " Cantrip"
+			byline << self[:school] + " Cantrip"
 		else
-			self[:level].ordinalize + "-level " + self[:school]
+			byline << self[:level].ordinalize + "-level " + self[:school]
 		end
+
+		unless self[:ritual].nil? || self[:ritual] == false
+			byline << " (ritual)"
+		end
+		byline
 	end
 end
 
