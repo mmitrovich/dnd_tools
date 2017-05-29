@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170529171935) do
 
   create_table "feats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
-    t.string "type"
+    t.string "use_type"
     t.text "description"
     t.string "uses", default: "N\\A"
     t.string "reset", default: "N\\A"

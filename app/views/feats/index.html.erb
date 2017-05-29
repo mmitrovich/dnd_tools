@@ -1,2 +1,40 @@
-<h1>Feats#index</h1>
-<p>Find me in app/views/feats/index.html.erb</p>
+<% 
+	@page_title = "Feats" 
+	@menu_item = "Feats"
+%>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Add Feat", new_feat_path, :class => 'btn-green') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<p><%= render_breadcrumbs %></p>
+	<%= render(:partial => 'application/flash_notify') %>
+
+
+		<h2>Feat List:</h2>
+		
+		<% if @feats.count == 0 %>
+			<p>No feats currently exist...</p>
+		<% else %>
+		<p>Click headings to sort...</p>
+		<table id="spell-table">
+			<tr>
+				<th onclick="sortTable(0)">Name</th>
+				<th onclick="sortTable(1)">Type</th>
+			</tr>
+			<% @feats.each do |feat| %>
+				<tr>
+					<td><%= link_to(feat.name, feat_path(feat)) %></td>
+					<td><%= feat.type %></td>
+				</tr>
+			<% end %>
+		</table>
+		<% end %>
+
+<% end %>

@@ -12,14 +12,12 @@ class Feat < ApplicationRecord
 	META = ["id", "created_at", "updated_at"]
 	VALIDATED = Feat.attribute_names.reject{|attr| META.include?(attr)}
 
-	validates :name,
-		:existence => true,
-		:uniqueness => true
-	validates :desription,
-		:existence => true
-	validates :type,
-		:existence => true
+	validates_presence_of VALIDATED
 
-	scope :sorted, lambda { order("type ASC, name ASC") }
+	validates :name,
+		:uniqueness => true
+
+	scope :sorted_type, lambda { order("type ASC, name ASC") }
+	scope :sorted, lambda { order("name ASC") }
 
 end

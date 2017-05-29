@@ -1,2 +1,40 @@
-<h1>Feats#show</h1>
-<p>Find me in app/views/feats/show.html.erb</p>
+<% 
+	@page_title = @feat.name 
+	@menu_item = "Feats"
+%>
+
+
+<% content_for :sidebar do %>
+	<ul id="sidebar-nav">
+		<li>
+			<%= link_to("Edit", edit_feat_path(@feat), :class => 'btn-green') %>
+		</li>
+		<li>
+			<%= link_to("Delete", delete_feat_path(@feat), :class => 'btn-red') %>
+		</li>
+	</ul>
+<% end %>
+
+<% content_for :main_content do %>
+		<p><%= render_breadcrumbs %></p>
+		<%= render(:partial => 'application/flash_notify') %>
+	
+		<div id="feat_details">
+			<h2><%= @feat.name %></h2>
+			<p>
+				<i><%= @feat.use_type  %></i>
+			</p>
+			<p>
+				<br>
+				
+				<%= raw sanitize @feat.description, tags: %w(strong em p br), attributes: %w(href) %>
+			</p>
+			<p>
+				<strong>Uses:</strong> <%= @feat.uses %>
+			</p>
+			<p>
+				<strong>Rest:</strong> <%= @feat.reset %>
+			</p>
+			
+		</div>
+<% end %>

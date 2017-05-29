@@ -21,7 +21,6 @@ class SpellsController < ApplicationController
 
   def create
     @spell = Spell.new(spell_params)
-    @spell.name.capitalize!
     if @spell.save
       flash[:notice] = "Spell added!"
       redirect_to spell_path(@spell)

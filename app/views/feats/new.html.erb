@@ -1,2 +1,35 @@
-<h1>Feats#new</h1>
-<p>Find me in app/views/feats/new.html.erb</p>
+<% @page_title = "Add Feat" %>
+<% @menu_item = "Feats" %>
+
+
+<script type="text/javascript">
+  var form = document.querySelector('#new_feat.new_feat');
+  form.onsubmit = function() {
+    var featContentInput = document.querySelector('#feat_description');
+    featContentInput.value = quill.root.innerHTML;
+  };
+</script>
+
+
+<% content_for :sidebar do %>
+<ul id="sidebar-nav">
+	<li>
+		<%= link_to("Cancel", feats_path, :class => 'btn-red') %>
+	</li>
+</ul>
+<% end %>
+
+<% content_for :main_content do %>
+	<div class="feat add">
+
+	  <%= form_for(@feat) do |f| %>
+
+	    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Create Feat", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>
