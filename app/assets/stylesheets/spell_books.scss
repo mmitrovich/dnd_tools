@@ -40,7 +40,6 @@
 		background: #fff;
 		width: 100%;
 
-
 		#main {
 			page-break-after: avoid;
 			h1 {
@@ -59,11 +58,11 @@
 		border: none;
 		page-break-before: avoid;
 
-		
 		-webkit-column-count: 2; /* Chrome, Safari, Opera */
 	    -moz-column-count: 2; /* Firefox */
 	    column-count: 2;
 	    -webkit-column-break-inside: avoid;
+
 
 		.spell_entry {
 			border: 1px solid #000;
