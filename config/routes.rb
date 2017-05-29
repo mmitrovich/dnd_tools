@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'feats/index'
+
+  get 'feats/show'
+
+  get 'feats/new'
+
+  get 'feats/edit'
+
   get 'inscriptions/create'
 
   get 'inscriptions/destroy'
