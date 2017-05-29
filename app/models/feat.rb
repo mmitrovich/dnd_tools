@@ -17,6 +17,11 @@ class Feat < ApplicationRecord
 	validates :name,
 		:uniqueness => true
 
+	has_many :trainings
+	has_many :characters, 
+		:through => :trainings,
+		:dependent => :destroy
+
 	scope :sorted_type, lambda { order("type ASC, name ASC") }
 	scope :sorted, lambda { order("name ASC") }
 

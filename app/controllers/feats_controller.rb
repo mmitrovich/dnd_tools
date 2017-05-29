@@ -40,7 +40,15 @@ class FeatsController < ApplicationController
 	end
 
 	def delete
-	end
+    @feat = Feat.find(params[:id])
+  end
+
+  def destroy
+    @feat = Feat.find(params[:id])
+    @feat.destroy
+    flash[:notice] = "Feat deleted!"
+    redirect_to feats_path
+  end
 
 
 	private

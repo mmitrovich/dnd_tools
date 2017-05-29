@@ -15,5 +15,6 @@ class Player < ApplicationRecord
 		:dependent => :destroy
 	
 	
+	
 	scope :sorted, lambda { order("name ASC") }
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529171935) do
+ActiveRecord::Schema.define(version: 20170529202937) do
 
   create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20170529171935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "ritual"
+  end
+
+  create_table "trainings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "character_id"
+    t.integer "feat_id"
+    t.integer "custom_uses_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_trainings_on_character_id"
+    t.index ["feat_id"], name: "index_trainings_on_feat_id"
   end
 
 end

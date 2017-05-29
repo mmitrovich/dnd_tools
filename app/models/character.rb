@@ -13,6 +13,10 @@ class Character < ApplicationRecord
 	belongs_to :player
 	has_many :spell_books,
 		:dependent => :destroy
+	has_many :trainings
+	has_many :feats, 
+		:through => :trainings,
+		:dependent => :destroy
 
 
 	def summary
