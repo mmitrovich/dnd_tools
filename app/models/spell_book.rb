@@ -3,7 +3,8 @@ class SpellBook < ApplicationRecord
 	belongs_to :character
 	has_many :inscriptions
 	has_many :spells, 
-		:through => :inscriptions
+		:through => :inscriptions,
+		:dependent => :destroy
 	
 
 	validates :name,

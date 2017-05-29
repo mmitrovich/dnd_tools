@@ -9,6 +9,9 @@ class SpellBooksController < ApplicationController
 
 	def show
 		@spellbook = SpellBook.find(params[:id])
+		spell_list = @spellbook.spells.count > 0 ? Spell.all - @spellbook.spells : Spell.all
+		@spell_options = spell_list.map{|spell| [spell.name, spell.id]}
+
 		add_breadcrumb @player.name, player_path(@player)
 		add_breadcrumb @character.name, character_path(@character, :player_id => @player.id)
 		add_breadcrumb @spellbook.name
@@ -53,6 +56,23 @@ class SpellBooksController < ApplicationController
 		@spellbook.destroy
 		flash[:notice] = "Spellbook deleted!"
 		redirect_to character_path(@character, :player_id => @player.id)
+	end
+
+
+	def inscribe
+		@spellbook = SpellBook.find(params[:id])
+		params[:inscribe_spells].each do |spell|
+			@new_spell = Spell.find(spell)
+			@spellbook.spells << @new_spell
+		end
+		redirect_to(spell_book_path(@spellbook, :character_id => @character.id))
+	end
+
+	def erase
+		@spellbook = SpellBook.find(params[:id])
+		@spell = Spell.find(params[:spell_id])
+		@spellbook.spells.delete (@spell)
+		redirect_to(spell_book_path(@spellbook, :character_id => @character.id))
 	end
 
 	private

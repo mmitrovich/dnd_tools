@@ -26,28 +26,40 @@
 		</div>
 		<div id="spellbook_spells">
 			<div id="inscribed">
-				My Spells:
+				<h2>Inscribed Spells:</h2>
 				<% if @spellbook.spells.count == 0 %>
 					<p>No spells have been inscribed</p>
 				<% else %>
-					<ul>
+
+				<p>Click headings to sort...</p>
+				<table id="spell-table">
+					<tr>
+						<th onclick="sortTable(0)">Name</th>
+						<th onclick="sortTable(1)">Level</th>
+						<th onclick="sortTable(2)">School</th>
+						<th>X</th>
+					</tr>
 					<% @spellbook.spells.each do |spell| %>
-						<li><%= spell.name %> | <%= link_to("X", spell_book_inscription_path(@spellbook, :spell_id => spell.id, :character_id => @character.id), :method => :delete, class => 'btn-green') %></li>
-					<% end %>	
-					</ul>		
+						<tr>
+							<td><%= spell.name %></td>
+							<td><%= spell.level_display %></td>
+							<td><%= spell.school %></td>
+							<td><%= link_to("X", erase_spell_book_path(@spellbook, :spell_id => spell.id, :character_id => @character.id, :method => :delete), :class => 'btn-red') %></td>
+						</tr>
+					<% end %>
+				</table>
 				<% end %>
 			</div><!-- end #inscribed -->
 
 			<div id="spell_list">
-				All Spells:
-				<%= form_for(@spellbook, :url => spell_book_inscriptions_path(@spellbook, :character_id => @character.id), :method => :post) do |f| %>
+				<h2>All Spells:</h2>
+				<%= form_for(@spellbook, :url => inscribe_spell_book_path(@spellbook, :character_id => @character.id), :method => :post) do |f| %>
 				<p>
-					<%= select_tag("inscribe_spells[]", options_for_select(Spell.all.map{|spell| [spell.name, spell.id]}), {:multiple => true, :size => 10}) %>
+					<%= select_tag("inscribe_spells[]", options_for_select(@spell_options), {:multiple => true, :size => 10}) %>
 					<br><%= f.submit("Inscribe", :class => "btn-green") %>
 				</p>
 				<% end %>
 			</div>
+			<div style="clear:both;"
 		</div>
-
-
-<% end %>
+<% end %> <!-- main content -->

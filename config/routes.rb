@@ -14,6 +14,13 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :spell_books do
+		member do
+			post :inscribe
+			get :erase
+		end
+	end
+
 	resources :character_classes
 	resources :races
 
