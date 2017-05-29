@@ -11,6 +11,8 @@ class CharactersController < ApplicationController
 
 	def show
 		@character = Character.find(params[:id])
+		feat_list = @character.feats.count > 0 ? Feat.all - @character.feats : Feat.all
+		@feat_options = feat_list.map{|spell| [spell.name, spell.id]}
 		add_breadcrumb @player.name, player_path(@player)
 		add_breadcrumb @character.name
 	end
@@ -54,6 +56,26 @@ class CharactersController < ApplicationController
 		@character.destroy
 		flash[:notice] = "Character deleted!"
 		redirect_to player_path(@player)
+	end
+
+
+	def train_feat
+		@character = Character.find(params[:id])
+		params[:train_feats].each do |feat|
+			@new_feat = Feat.find(feat)
+			@character.feats << @new_feat
+		end
+		redirect_to(character_path(@character, :player_id => @player.id))
+	end
+
+	def untrain_feat
+		@character = Character.find(params[:id])
+		@feat = Feat.find(params[:feat_id])
+		@character.feats.delete (@feat)
+		redirect_to(character_path(@character, :player_id => @player.id))
+	end
+
+	def print_feats
 	end
 
 

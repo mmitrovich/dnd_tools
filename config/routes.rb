@@ -23,6 +23,14 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :characters do
+		member do
+			post :train_feat
+			get :untrain_feat
+			get :print_feats
+		end
+	end
+
 	resources :character_classes
 	resources :races
 

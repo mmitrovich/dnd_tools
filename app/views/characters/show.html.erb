@@ -3,6 +3,11 @@
 %>
 
 
+<script type="text/javascript">
+		openTab(event, 'feats')
+</script>
+
+
 <% content_for :sidebar do %>
 	<ul id="sidebar-nav">
 		<li>
@@ -34,13 +39,50 @@
 		</div>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'feats')">Feats</button>
+  <button class="tablinks active" onclick="openTab(event, 'feats')">Feats</button>
   <button class="tablinks" onclick="openTab(event, 'spellbooks')">Spellbooks</button>
 </div>
 
 <div id="feats" class="tabcontent">
 	<h4>Feats:</h4>
+		<div id="trained_feats">
+			<h2>Trained Feats:</h2>
+			<% if @character.feats.count == 0 %>
+				<p>No feats have been trained</p>
+			<% else %>
+
+			<p>Click headings to sort...</p>
+			<table id="feat-table">
+				<tr>
+					<th onclick="sortTable(0)">Name</th>
+					<th onclick="sortTable(1)">Type</th>
+					<th onclick="sortTable(2)">Uses</th>
+					<th>X</th>
+				</tr>
+				<% @character.feats.each do |feat| %>
+					<tr>
+						<td><%= feat.name %></td>
+						<td><%= feat.use_type %></td>
+						<td><%= feat.uses %></td>
+						<td><%= link_to("X", untrain_feat_character_path(@character, :feat_id => feat.id, :character_id => @character.id, :player_id => @player.id, :method => :delete), :class => 'btn-red') %></td> 
+					</tr>
+				<% end %>
+			</table>
+			<% end %>
+		</div><!-- end #inscribed -->
+
+		<div id="all_feats">
+			<h2>All Feats:</h2>
+			<%= form_for(@character, :url => train_feat_character_path(@character, :character_id => @character.id, :player_id => @player.id), :method => :post) do |f| %>
+				<p>
+					<%= select_tag("train_feats[]", options_for_select(@feat_options), {:multiple => true, :size => 10}) %>
+					<br><%= f.submit("Train", :class => "btn-green") %>
+				</p>
+				<% end %>
+		</div>
+			<div style="clear:both;"></div>
 </div>
+
 
 <div id="spellbooks" class="tabcontent">
 
