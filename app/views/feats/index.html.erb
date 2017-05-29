@@ -31,7 +31,7 @@
 			<% @feats.each do |feat| %>
 				<tr>
 					<td><%= link_to(feat.name, feat_path(feat)) %></td>
-					<td><%= feat.type %></td>
+					<td><%= feat.use_type %></td>
 				</tr>
 			<% end %>
 		</table>

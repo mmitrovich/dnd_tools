@@ -26,6 +26,17 @@ class FeatsController < ApplicationController
 	end
 
 	def edit
+		@feat = Feat.find(params[:id])
+	end
+
+	def update
+		@feat = Feat.find(params[:id])
+	    if @feat.update_attributes(feat_params)
+	      flash[:notice] = "Feat updated..."
+	      redirect_to(feat_path(@feat))
+	    else
+	      render('edit')
+	    end
 	end
 
 	def delete
