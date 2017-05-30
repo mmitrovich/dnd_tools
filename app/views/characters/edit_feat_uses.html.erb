@@ -1,0 +1,46 @@
+<% 
+	@page_title = @player.name 
+%>
+
+
+<script type="text/javascript">
+		openTab(event, 'feats')
+</script>
+
+
+<% content_for :sidebar do %>
+	<%= link_to("Cancel", character_path(@character, :player_id => @player.id), :class => 'btn-red') %>
+<% end %>
+
+<% content_for :main_content do %>
+		<p><%= render_breadcrumbs %></p>
+		<%= render(:partial => 'application/flash_notify') %>
+	
+		<div id="player_details">
+			<h2><%= @player.name %></h2>
+			<p>
+				<%= @player.email %><br></%>
+				<%= @player.phone %>
+			</p>
+		</div>
+
+		<div id="character_details">
+			<h2><%= @character.name %></h2>
+			<p>
+				<%= @character.summary %> 
+			</p>
+		</div>
+		<h2><%= @feat.name %></h2>
+		<p><%= raw sanitize @feat.description, tags: %w(strong em p ), attributes: %w(href) %></p>
+
+		<%= form_for(@character, :url => update_feat_uses_character_path(@character, :feat_id => @feat.id, :player_id => @player.id), :method => :update) do |f| %>
+
+	    <%= render(:partial => 'uses_form', :locals => {:f => f}) %>
+
+	    <div class="form-buttons">
+	      <%= f.submit("Update Uses", :class => "btn-green") %>
+	    </div>
+
+	  <% end %>
+	</div>
+<% end %>

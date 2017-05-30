@@ -17,7 +17,6 @@ class RacesController < ApplicationController
 
 	def create
 		@race = Race.new(race_params)
-		@race.name.capitalize!
 		if @race.save
 			flash[:notice] = "Race added..."
 			redirect_to races_path

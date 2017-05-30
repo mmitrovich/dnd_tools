@@ -22,7 +22,7 @@ class Feat < ApplicationRecord
 		:through => :trainings,
 		:dependent => :destroy
 
-	scope :sorted_type, lambda { order("type ASC, name ASC") }
+	scope :sorted_type, lambda { order("use_type ASC, name ASC") }
 	scope :sorted, lambda { order("name ASC") }
 
 end

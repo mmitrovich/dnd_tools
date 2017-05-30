@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 			post :train_feat
 			get :untrain_feat
 			get :print_feats
+			get :edit_feat_uses
+			post :update_feat_uses
 		end
 	end
 

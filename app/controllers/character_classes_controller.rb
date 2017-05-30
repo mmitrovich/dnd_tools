@@ -17,7 +17,6 @@ class CharacterClassesController < ApplicationController
 
 	def create
 		@character_class = CharacterClass.new(class_params)
-		@character_class.name.capitalize!
 		if @character_class.save
 			flash[:notice] = "Class added..."
 			redirect_to(character_classes_path)

@@ -1,0 +1,16 @@
+<%= error_messages_for(f.object) %>
+
+
+
+<table summary="Feat uses form fields">
+  <tr>
+    <th>Custom Uses</th>
+    
+      <%= f.fields_for :trainings, @training do |training| %>
+        <td><%= training.text_field :custom_uses_count %></td>
+      <% end %>
+  </tr>
+
+</table>
+
+<!-- WYSIWYG -->

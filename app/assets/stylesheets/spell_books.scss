@@ -70,6 +70,7 @@
 			padding: 0;
 			width: 100%;
 			-webkit-column-break-inside: avoid;
+			display:inline-block;
 			.spell_header {
 				background: #ddd;
 				h2 {
@@ -83,17 +84,24 @@
 			}
 			.desc {
 				padding: 5px;
+				#use_counter{
+					width: 250px;
+					font-weight: bold;
+					font-size: 1.5em;
+					// text-align: center;
+					margin: auto;
+				}
 			}
 
 			table.print_spell_details {
+				width: 100%;
 				th {
 					background: #fff;
+					width: 30px;
 				}
 				th, td {
 					text-align: left;
-					width: auto;
 				}
-				td {width: 300px;}
 			}
 		}
 	}

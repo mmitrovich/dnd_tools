@@ -1,9 +1,9 @@
 class CharactersController < ApplicationController
-  
-  
+  	skip_before_action :verify_authenticity_token
+
 	before_action :find_player
 
-  	layout 'main'
+  	layout :resolve_layout
   	add_breadcrumb "home", :root_path
   	add_breadcrumb "Players", '\players'
 
@@ -62,20 +62,40 @@ class CharactersController < ApplicationController
 	def train_feat
 		@character = Character.find(params[:id])
 		params[:train_feats].each do |feat|
-			@new_feat = Feat.find(feat)
-			@character.feats << @new_feat
+			@character.feats << Feat.find(feat)
 		end
 		redirect_to(character_path(@character, :player_id => @player.id))
 	end
 
 	def untrain_feat
 		@character = Character.find(params[:id])
-		@feat = Feat.find(params[:feat_id])
-		@character.feats.delete (@feat)
+		@character.feats.delete (Feat.find(params[:feat_id]))
 		redirect_to(character_path(@character, :player_id => @player.id))
 	end
 
 	def print_feats
+		@character = Character.find(params[:id])
+		@feats = @character.feats.sorted_type
+	end
+
+	def edit_feat_uses
+		@character = Character.find(params[:id])
+		@training = @character.trainings.where(:feat_id => params[:feat_id]).first
+		@feat = Feat.find(params[:feat_id])
+
+	end
+
+	def update_feat_uses
+		@character = Character.find(params[:id])
+		@training = @character.trainings.where(:feat_id => params[:feat_id]).first
+		@feat = Feat.find(params[:feat_id])
+		@training.custom_uses_count = params[:character][:trainings][:custom_uses_count]
+		if @training.save
+			flash[:notice] = "Uses count updated..."
+			redirect_to(character_path(@character, :player_id => @player.id))
+		else
+			render('edit_feat_uses')
+		end
 	end
 
 
@@ -93,4 +113,15 @@ class CharactersController < ApplicationController
 			:level
 		)
 	end
+
+	def resolve_layout
+		case action_name
+			when "print_feats"
+				"print_feats"
+			else
+				"main"
+		end
+	end
+
+	
 end

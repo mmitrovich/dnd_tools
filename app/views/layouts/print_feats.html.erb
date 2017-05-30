@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      DndTools
+      <%= 
+        unless @page_title.nil?
+          " | #{@page_title}"
+        end
+      %> 
+  </title>
+
+    <%= stylesheet_link_tag('application', media: 'all') %>
+
+  </head>
+
+
+
+
+  <body id="printable_spells">
+
+  <div id="main">
+    <h1>
+      <%= @character.name %>: Feats List
+    </h1>
+  </div>
+
+  <section id="printable_spell_list">
+    <% @feats.each do |feat| %>
+
+    <div class="spell_entry">
+      <div class="spell_header">
+        <h2><%= feat.name %></h2>
+        <p><%= feat.use_type %></p>
+      </div>
+      <table class="print_spell_details">
+        <tr>
+          <th>Uses</th>
+          <td><%= feat_uses_display(feat) %></td>
+        </tr>
+        <tr>
+          <th>Reset</th>
+          <td><%= feat.reset %></td>
+        </tr>
+      </table>
+      <div class="desc">
+        <%= raw sanitize feat.description, tags: %w(strong em p), attributes: %w(href) %>
+
+        <% if feat_use_counter(feat) %>
+          <p style="text-align: center;"><strong>Use Counter:</strong></p>
+          <p id="use_counter">
+            <%= " O " * feat_use_counter(feat) %>
+          </p>
+        <% end %>
+        
+      </div>
+    </div><!-- spell_entry -->
+    <% end %>
+
+  </section>
+
+  </body>
+  </div>
+</html>

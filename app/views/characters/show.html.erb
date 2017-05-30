@@ -50,7 +50,7 @@
 			<% if @character.feats.count == 0 %>
 				<p>No feats have been trained</p>
 			<% else %>
-
+			<%= link_to("Print Feats", print_feats_character_path(@character, :player_id => @player.id), :target => "_blank", :class => 'btn-green') %>
 			<p>Click headings to sort...</p>
 			<table id="feat-table">
 				<tr>
@@ -63,7 +63,9 @@
 					<tr>
 						<td><%= feat.name %></td>
 						<td><%= feat.use_type %></td>
-						<td><%= feat.uses %></td>
+						<td>
+							<%= feat_uses_display(feat) %>
+						</td>
 						<td><%= link_to("X", untrain_feat_character_path(@character, :feat_id => feat.id, :character_id => @character.id, :player_id => @player.id, :method => :delete), :class => 'btn-red') %></td> 
 					</tr>
 				<% end %>
