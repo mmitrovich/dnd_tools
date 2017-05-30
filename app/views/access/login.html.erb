@@ -1,0 +1,26 @@
+<% @page_title = "Admin Login" %>
+
+
+<% content_for :main_content do %>
+
+<%= render(:partial => 'application/flash_notify') %>
+
+  <div class="login">
+    <%= form_tag(access_attempt_login_path, :method => :post) do %>
+    <table>
+      <tr>
+        <td><%= label_tag(:user_name) %></td>
+        <td><%= text_field_tag(:user_name, params[:user_name]) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:password) %></td>
+        <td><%= password_field_tag(:password) %></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><%= submit_tag("Log In") %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+<% end %>

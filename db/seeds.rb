@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Race.create(name:'Human')
-Race.create(name:'Elf')
+AdminUser.create(:user_name => 'testuser', :password => 'test')
 
 
 # seed classes

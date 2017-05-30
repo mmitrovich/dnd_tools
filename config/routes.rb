@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
+	root 'players#index'
 
 
+  get 'access/login'
+	post 'access/attempt_login'
+	get 'access/logout'
 
   get 'inscriptions/create'
   get 'inscriptions/destroy'
 
-	root 'main#index'
+
 	get '/meta', to: 'main#meta'
 
 	resources :players, :characters, :spells, :spell_books, :feats do

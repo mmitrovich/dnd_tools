@@ -26,18 +26,21 @@
 			<nav id="main-nav">
 				<ul>
 					<li class="Players"><%= link_to("Players", players_path) %></a></li>
-					<li><a href="#">Campaigns</a></li>
+					<!-- <li><a href="#">Campaigns</a></li> -->
 					<li class="Feats"><%= link_to("Feats",feats_path) %></li>
 					<li class="Spells"><%= link_to("Spells", spells_path) %></li>
 					<li class="Meta"><%= link_to("Meta", character_classes_path) %></li>
 				</ul>
+				
 			</nav>
+
 		</header>
 
 		
 		<section id="main-content">
 			<section id="sidebar">
 				<%= yield :sidebar %>
+				<%= link_to "logout", access_logout_path %>
 			</section>
 
 			<section id="main">
