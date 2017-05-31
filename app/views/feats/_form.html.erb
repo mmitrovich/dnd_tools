@@ -24,7 +24,7 @@
     <td>
     <%= f.hidden_field(:description) %>
       <div id="description">
-        <%= raw sanitize @feat.description, tags: %w(strong em br p), attributes: %w(href) || "Enter a description..." %>
+        <%= raw sanitize @feat.description, tags: %w(strong em br p ul ol li), attributes: %w(href) || "Enter a description..." %>
       </div>
 
         <!-- Include the Quill library -->
