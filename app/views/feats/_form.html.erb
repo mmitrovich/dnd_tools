@@ -24,7 +24,6 @@
     <td>
     <%= f.hidden_field(:description) %>
       <div id="description">
-        <!-- <%= raw sanitize @feat.description, tags: %w(strong em br p ul ol li), attributes: %w(href) || "Enter a description..." %> -->
         <%= html_description(@feat.description) || "Enter a description..." %>
       </div>
 
@@ -34,7 +33,6 @@
         <script>
         var quill = new Quill('#description', {
             theme: 'snow',
-
           });
       </script>
     </td>

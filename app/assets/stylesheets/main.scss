@@ -54,6 +54,7 @@ section#main {
 
 #player_details,
 #spell_details,
+#feat_details,
 #spellbook_details {
 	border-bottom: 1px solid #999;
 	background: #FFA500;
@@ -72,7 +73,7 @@ section#main {
 	background: #ddd;
 }
 
-#spell_details {
+#spell_details, #feat_details {
 	background: #ddd;
 }
 
