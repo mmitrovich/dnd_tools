@@ -27,7 +27,7 @@
 			<p>
 				<br>
 				
-				<%= raw sanitize @feat.description, tags: %w(strong em p ), attributes: %w(href) %>
+				<%= raw sanitize @feat.description, tags: %w(strong em p ul ol li ), attributes: %w(href) %>
 			</p>
 			<p>
 				<strong>Uses:</strong> <%= @feat.uses %>

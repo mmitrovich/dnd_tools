@@ -39,7 +39,7 @@
 			<p>
 				<br>
 				
-				<%= raw sanitize @spell.description, tags: %w(strong em p br), attributes: %w(href) %>
+				<%= raw sanitize @spell.description, tags: %w(strong em p br ul ol li), attributes: %w(href) %>
 			</p>
 		</div>
 <% end %>
