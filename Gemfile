@@ -55,6 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "breadcrumbs_on_rails"
 
-gem 'unicorn', '~> 4.8.0'
 
 # gem 'rails-assets-quill', source: 'https://rails-assets.org'
