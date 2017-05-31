@@ -6,7 +6,7 @@ module ApplicationHelper
 
 	def html_description(html_text)
 		if html_text
-			raw sanitize html_text, tags: %w(strong em br p ul ol li), attributes: %w(href)
+			raw sanitize html_text, tags: %w(strong em p ul ol li), attributes: %w(href)
 		else
 			false
 		end
