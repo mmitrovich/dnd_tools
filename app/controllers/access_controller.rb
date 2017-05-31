@@ -4,8 +4,7 @@ class AccessController < ApplicationController
 
 
   layout 'main'
-  before_action :confirm_logged_in,
-    :except => [:login, :attempt_login, :logout]
+
 
   def login
   	# login form
@@ -36,13 +35,4 @@ class AccessController < ApplicationController
   	redirect_to access_login_path
   end
 
-
-private
-
-  def confirm_logged_in
-    unless session[:user_id]
-      flash[:notice] = "Please login."
-      redirect_to access_login_path
-    end
-  end 
 end

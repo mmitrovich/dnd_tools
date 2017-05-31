@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: mikemit_dnd_tools
-  username: dnd_tools
+  database: dnd_tools
+  username: dnd_tools_user
   password: <%= ENV['DND_TOOLS_DATABASE_PASSWORD'] %>
