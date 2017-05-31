@@ -53,6 +53,7 @@ production:
   # username: dnd_tools_user
   # password: <%= ENV['DND_TOOLS_DATABASE_PASSWORD'] %>
   database: dnd_tools
+  host: localhost
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
