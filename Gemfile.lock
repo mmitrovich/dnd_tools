@@ -53,6 +53,15 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.2.3)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
@@ -191,6 +200,9 @@ DEPENDENCIES
   breadcrumbs_on_rails
   byebug
   capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -198,6 +210,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.7)
   rails (~> 5.1.1)
+  rake
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

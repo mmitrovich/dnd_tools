@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.8.1"
 
+
 set :application, "dnd_tools"
 set :repo_url, "git@github.com:mmitrovich/dnd_tools.git"
 
@@ -37,7 +38,7 @@ namespace :deploy do
 	desc "Symlink shared config files"
 	task :symlink_config_files do
 		on roles(:all) do
-	    	execute " ln -s #{ deploy_to }/shared/config/local_env.yml #{ current_path }/config/local_env.yml"
+	    	execute "ln -s #{ deploy_to }/shared/config/local_env.yml #{ current_path }/config/local_env.yml"
 	    end
 	end
 
