@@ -39,7 +39,7 @@ namespace :deploy do
 	desc "Symlink shared config files"
 	task :symlink_config_files do
 		on roles(:all) do
-	    	execute "ln -s #{ deploy_to }/shared/config/local_env.yml #{ current_path }/config/local_env.yml"
+	    	execute "ln -s #{ deploy_to }/shared/config/local_env.yml #{ release_path }/config/local_env.yml"
 	    end
 	end
 
