@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
- gem 'capistrano-rails', group: :development
+ # gem 'capistrano-rails', group: :development
 
 
 group :development, :test do
@@ -40,8 +40,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'capistrano'
-  gem 'capistrano-rails'
 end
 
 group :development do
@@ -51,7 +49,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'capistrano'
+    gem 'capistrano'
+  gem 'capistrano-rails'
 
 end
 
