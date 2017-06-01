@@ -44,8 +44,7 @@
         </tr>
       </table>
       <div class="desc">
-        <%= raw sanitize feat.description, tags: %w(strong em p), attributes: %w(href) %>
-
+        <%= html_description(feat.description) %>
         <% if feat_use_counter(feat) %>
           <p style="text-align: center;"><strong>Use Counter:</strong></p>
           <p id="use_counter">

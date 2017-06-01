@@ -56,7 +56,7 @@
         </tr>
       </table>
       <div class="desc">
-        <%= raw sanitize spell.description, tags: %w(strong em p), attributes: %w(href) %>
+        <%= html_description(spell.description) %>
       </div>
     </div><!-- spell_entry -->
     <% end %>
