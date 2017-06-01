@@ -35,6 +35,7 @@ set :user, "mike"
 # set :keep_releases, 5
 
 namespace :deploy do
+
 	desc "Symlink shared config files"
 	task :symlink_config_files do
 		on roles(:all) do

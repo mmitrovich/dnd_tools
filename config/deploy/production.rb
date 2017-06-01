@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 server "mitrovich.no-ip.biz",user: fetch(:user), roles: [:app, :web, :db], :primary => true 
-
+set :rails_env, "production"
 
 
 # role-based syntax
