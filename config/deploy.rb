@@ -4,6 +4,7 @@ lock "3.8.1"
 
 set :application, "dnd_tools"
 set :repo_url, "git@github.com:mmitrovich/dnd_tools.git"
+set :rails_env, 'production'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
