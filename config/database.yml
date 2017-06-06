@@ -58,4 +58,4 @@ production:
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: dnd_tools_user
-  password: <%= ENV['DND_TOOLS_DATABASE_PASSWORD'] %>
+  password: DndTools.dnd_tools_database_password

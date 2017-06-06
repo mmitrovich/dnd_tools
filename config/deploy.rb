@@ -4,6 +4,7 @@ lock "3.8.1"
 
 set :application, "dnd_tools"
 set :repo_url, "git@github.com:mmitrovich/dnd_tools.git"
+
 set :rails_env, 'production'
 
 # Default branch is :master
@@ -35,26 +36,49 @@ set :user, "mike"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+namespace :config do
+  desc "Symlink application config files."
+  task :symlink do
+  	on roles(:all) do
+    	execute "ln -s {#{shared_path},#{release_path}}/config/app_secret.yml"  
+    end
+  end
+end
+
+
 namespace :deploy do
-
-	desc "Symlink shared config files"
-	task :symlink_config_files do
-		on roles(:all) do
-	    	execute "ln -s #{ deploy_to }/shared/config/local_env.yml #{ release_path }/config/local_env.yml"
-	    end
-	end
-
 	desc "Restart Passenger app"
 	task :restart do
 		on roles(:all) do
 	    	execute "touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
 	    end
 	end
+
+
+	desc 'Precompile assets locally and then rsync to web servers'
+  	task :custom_compile_assets do
+    # The command inside this block will run in our local machine
+    run_locally do
+      execute 'RAILS_ENV=production bundle exec rake assets:precompile'
+      execute 'tar -zcvf assets.tar.tgz public/assets/'
+      execute 'rm -rf public/assets'
+       
+       # This command will copy and transfer the assets.tar.tgz to username@servername.com:#{release_path}/
+      execute "scp -P2222 assets.tar.tgz mike@mitrovich.no-ip.biz:#{release_path}/assets.tar.tgz"
+      execute 'rm -rf assets.tar.tgz'
+    end
+    on roles(:all) do |host|
+      # this command extracts assets.tar.tgz
+      execute "cd #{release_path}; tar zxvf assets.tar.tgz"
+
+      execute "cd #{release_path}; rm -rf assets.tar.tgz"
+    end
+    invoke 'deploy:restart'
+  end
 end
 
 
 
-
-after "deploy", "deploy:symlink_config_files"
+after "deploy", "config:symlink"
 after "deploy", "deploy:restart"
 after "deploy", "deploy:cleanup"
