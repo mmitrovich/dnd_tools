@@ -48,14 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  # <<: *default
-  # database: dnd_tools
-  # username: dnd_tools_user
-  # password: <%= ENV['DND_TOOLS_DATABASE_PASSWORD'] %>
   database: dnd_tools
   host: localhost
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: dnd_tools_user
-  password: DndTools.dnd_tools_database_password
+  password: DndTools.config.dnd_tools_database_password
