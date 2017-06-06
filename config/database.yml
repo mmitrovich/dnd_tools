@@ -13,12 +13,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+  username: root
+  password:
   database: dnd_tools_development
 
 # Warning: The database defined as "test" will be erased and
@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  # <<: *default
   # database: dnd_tools
   # username: dnd_tools_user
   # password: <%= ENV['DND_TOOLS_DATABASE_PASSWORD'] %>
