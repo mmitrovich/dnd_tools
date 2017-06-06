@@ -57,7 +57,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# breadcrumbs
 gem "breadcrumbs_on_rails"
 
+# secure env variables
+# See https://www.varvet.com/blog/handle-secret-credentials-in-ruby-on-rails/
+gem "econfig", require: "econfig/rails"
 
 # gem 'rails-assets-quill', source: 'https://rails-assets.org'

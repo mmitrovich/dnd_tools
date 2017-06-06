@@ -8,6 +8,10 @@ require 'active_support/core_ext/integer/inflections'
 Bundler.require(*Rails.groups)
 
 module DndTools
+
+  # Secure env vars
+  extend Econfig::Shortcut
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
