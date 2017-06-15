@@ -40,6 +40,7 @@ class Spell < ApplicationRecord
 		%w(
 			Abjuration
 			Conjuration
+			Divination
 			Enchantment
 			Evocation
 			Transmutation
