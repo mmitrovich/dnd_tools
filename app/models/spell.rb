@@ -58,6 +58,7 @@ class Spell < ApplicationRecord
 	def self.ranges
 		[
 			"Self",
+			"Touch",
 			"10 feet",
 			"30 feet",
 			"60 feet",
