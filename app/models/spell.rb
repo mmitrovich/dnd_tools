@@ -48,6 +48,32 @@ class Spell < ApplicationRecord
 		)
 	end
 
+	def self.casting_times
+		%w(
+			Action
+			Bonus Action
+		)
+	end
+
+	def self.ranges
+		[
+			"Self",
+			"10 feet",
+			"30 feet",
+			"60 feet",
+			"120 feet"
+		]
+	end
+
+	def self.durations
+		[
+			"Instantaneous",
+			"Concentration, up to 1 minute",
+			"Concentration, up to 10 minutes",
+			"8 hours"
+		]
+	end
+
 	def byline
 		byline = ""
 		if self[:level] == 0

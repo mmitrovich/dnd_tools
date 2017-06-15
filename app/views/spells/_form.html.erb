@@ -23,11 +23,13 @@
   </tr>
   <tr>
     <th>Casting Time</th>
-    <td><%= f.text_field(:casting_time) %></td>
+    <td><%= f.select :casting_time, Spell.casting_times %></td>
+    <!-- <td><%= f.text_field(:casting_time) %></td> -->
   </tr>
   <tr>
     <th>Range</th>
-    <td><%= f.text_field(:range) %></td>
+    <td><%= f.select :range, Spell.ranges %></td>
+    <!-- <td><%= f.text_field(:range) %></td> -->
   </tr>
   <tr>
     <th>Components</th>
@@ -35,7 +37,8 @@
   </tr>
   <tr>
     <th>Duration</th>
-    <td><%= f.text_field(:duration) %></td>
+    <td><%= f.select :duration, Spell.durations %></td>
+    <!-- <td><%= f.text_field(:duration) %></td> -->
   </tr>
 
     
