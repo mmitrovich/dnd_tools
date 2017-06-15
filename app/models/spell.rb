@@ -43,6 +43,7 @@ class Spell < ApplicationRecord
 			Divination
 			Enchantment
 			Evocation
+			Necromancy
 			Transmutation
 		)
 	end
