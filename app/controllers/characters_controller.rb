@@ -11,7 +11,7 @@ class CharactersController < ApplicationController
 
 	def show
 		@character = Character.find(params[:id])
-		feat_list = @character.feats.count > 0 ? Feat.all - @character.feats : Feat.all
+		feat_list = @character.feats.count > 0 ? Feat.sorted - @character.feats : Feat.sorted
 		@feat_options = feat_list.map{|spell| [spell.name, spell.id]}
 		add_breadcrumb @player.name, player_path(@player)
 		add_breadcrumb @character.name
