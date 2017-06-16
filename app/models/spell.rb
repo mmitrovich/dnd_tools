@@ -49,10 +49,11 @@ class Spell < ApplicationRecord
 	end
 
 	def self.casting_times
-		%w(
-			Action
-			Bonus Action
-		)
+		[
+			"Action",
+			"Bonus Action",
+			"1 minute"
+		]
 	end
 
 	def self.ranges
