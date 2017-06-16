@@ -10,7 +10,7 @@ class SpellBooksController < ApplicationController
 
 	def show
 		@spellbook = SpellBook.find(params[:id])
-		spell_list = @spellbook.spells.count > 0 ? Spell.all - @spellbook.spells : Spell.all
+		spell_list = @spellbook.spells.count > 0 ? Spell.sorted_name - @spellbook.spells : Spell.sorted_name
 		@spell_options = spell_list.map{|spell| [spell.name, spell.id]}
 
 		add_breadcrumb @player.name, player_path(@player)
