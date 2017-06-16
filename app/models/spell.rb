@@ -70,6 +70,7 @@ class Spell < ApplicationRecord
 		[
 			"Instantaneous",
 			"1 round",
+			"1 hour",
 			"Concentration, up to 1 minute",
 			"Concentration, up to 10 minutes",
 			"8 hours"
