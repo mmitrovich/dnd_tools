@@ -52,14 +52,14 @@
 			<% else %>
 			<%= link_to("Print Feats", print_feats_character_path(@character, :player_id => @player.id), :target => "_blank", :class => 'btn-green') %>
 			<p>Click headings to sort...</p>
-			<table id="feat-table">
+			<table id="spell-table">
 				<tr>
 					<th onclick="sortTable(0)">Name</th>
 					<th onclick="sortTable(1)">Type</th>
 					<th onclick="sortTable(2)">Uses</th>
 					<th>X</th>
 				</tr>
-				<% @character.feats.each do |feat| %>
+				<% @character.feats.sorted.each do |feat| %>
 					<tr>
 						<td><%= feat.name %></td>
 						<td><%= feat.use_type %></td>
