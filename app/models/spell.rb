@@ -65,7 +65,9 @@ class Spell < ApplicationRecord
 			"10 feet",
 			"30 feet",
 			"60 feet",
-			"120 feet"
+			"90 feet",
+			"120 feet",
+			"150 feet"
 		]
 	end
 
