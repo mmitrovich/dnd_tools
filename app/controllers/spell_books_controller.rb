@@ -78,7 +78,7 @@ class SpellBooksController < ApplicationController
 
 	def print
 		@spellbook = SpellBook.find(params[:id])
-		@spells = @spellbook.spells
+		@spells = @spellbook.spells.sorted_name
 	end
 
 

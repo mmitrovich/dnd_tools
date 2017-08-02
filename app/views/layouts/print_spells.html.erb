@@ -30,7 +30,7 @@
   </div>
 
   <section id="printable_spell_list">
-    <% @spellbook.spells.each do |spell| %>
+    <% @spellbook.spells.sorted_name.each do |spell| %>
 
     <div class="spell_entry">
       <div class="spell_header">
