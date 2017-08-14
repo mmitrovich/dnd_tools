@@ -75,7 +75,7 @@ class CharactersController < ApplicationController
 
 	def print_feats
 		@character = Character.find(params[:id])
-		@feats = @character.feats.sorted_name
+		@feats = @character.feats.sorted_type
 	end
 
 	def edit_feat_uses
