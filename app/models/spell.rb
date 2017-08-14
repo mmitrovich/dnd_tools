@@ -80,7 +80,8 @@ class Spell < ApplicationRecord
 			"Concentration, up to 1 round",
 			"Concentration, up to 1 minute",
 			"Concentration, up to 10 minutes",
-			"8 hours"
+			"8 hours",
+			"24 hours"
 		]
 	end
 
