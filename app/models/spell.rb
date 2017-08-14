@@ -77,6 +77,7 @@ class Spell < ApplicationRecord
 			"1 round",
 			"1 hour",
 			"1 minute",
+			"10 minutes",
 			"Concentration, up to 1 round",
 			"Concentration, up to 1 minute",
 			"Concentration, up to 10 minutes",
