@@ -44,7 +44,7 @@
 					</tr>
 					<% @spellbook.spells.each do |spell| %>
 						<tr>
-							<td><%= spell.name %></td>
+							<td><%= link_to spell.name, spell_path(spell) %></td>
 							<td><%= spell.level_display %></td>
 							<td><%= spell.school %></td>
 							<td><%= link_to("X", erase_spell_book_path(@spellbook, :spell_id => spell.id, :character_id => @character.id, :method => :delete), :class => 'btn-red') %></td>

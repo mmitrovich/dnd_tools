@@ -61,7 +61,7 @@
 				</tr>
 				<% @character.feats.sorted.each do |feat| %>
 					<tr>
-						<td><%= feat.name %></td>
+						<td><%= link_to feat.name, feat_path(feat) %></td>
 						<td><%= feat.use_type %></td>
 						<td>
 							<%= feat_uses_display(feat) %>
