@@ -17,7 +17,7 @@ default: &default
 
 development:
   <<: *default
-  username: root
+  username: ubuntu
   password:
   database: dnd_tools_development
 
