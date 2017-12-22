@@ -54,7 +54,8 @@ class Spell < ApplicationRecord
 			"Action",
 			"Bonus Action",
 			"Reaction",
-			"1 minute"
+			"1 minute",
+			"10 minutes"
 		]
 	end
 
