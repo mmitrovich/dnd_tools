@@ -45,6 +45,12 @@
       </table>
       <div class="desc">
         <%= html_description(feat.description) %>
+        <% if has_notes(feat)  %>
+          <p>
+            <br><b>Custom Notes:</b><br>
+            <%= @character.trainings.where(:feat_id => feat).first.notes %>
+          </p>
+        <% end %>
         <% if feat_use_counter(feat) %>
           <p style="text-align: center;margin-top: 2em;"><strong>Use Counter:</strong></p>
           <p id="use_counter">

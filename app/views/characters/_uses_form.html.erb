@@ -11,6 +11,14 @@
       <% end %>
   </tr>
 
+  <tr>
+    <th>Notes</th>
+    
+      <%= f.fields_for :trainings, @training do |training| %>
+        <td><%= training.text_area :notes, size: "30x10" %></td>
+      <% end %>
+  </tr>
+
 </table>
 
 <!-- WYSIWYG -->

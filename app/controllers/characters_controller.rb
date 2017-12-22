@@ -90,6 +90,7 @@ class CharactersController < ApplicationController
 		@training = @character.trainings.where(:feat_id => params[:feat_id]).first
 		@feat = Feat.find(params[:feat_id])
 		@training.custom_uses_count = params[:character][:trainings][:custom_uses_count]
+		@training.notes = params[:character][:trainings][:notes]
 		if @training.save
 			flash[:notice] = "Uses count updated..."
 			redirect_to(character_path(@character, :player_id => @player.id))

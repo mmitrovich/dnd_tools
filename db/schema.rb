@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530220849) do
+ActiveRecord::Schema.define(version: 20171222054400) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "user_name"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170530220849) do
     t.integer "custom_uses_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
     t.index ["character_id"], name: "index_trainings_on_character_id"
     t.index ["feat_id"], name: "index_trainings_on_feat_id"
   end
