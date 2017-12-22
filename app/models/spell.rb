@@ -86,6 +86,7 @@ class Spell < ApplicationRecord
 			"Concentration, up to 8 hours",
 			"8 hours",
 			"24 hours",
+			"10 days",
 			"Until dispelled"
 		]
 	end
