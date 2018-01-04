@@ -63,6 +63,7 @@ class Spell < ApplicationRecord
 		[
 			"Self",
 			"Self (15' cone)",
+			"Self (15' cube)",
 			"Touch",
 			"10 feet",
 			"30 feet",
