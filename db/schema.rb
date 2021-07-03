@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171222054400) do
 
-  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admin_users", force: :cascade do |t|
     t.string "user_name"
     t.string "real_name"
     t.string "email"
@@ -22,14 +25,14 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.index ["user_name"], name: "index_admin_users_on_user_name"
   end
 
-  create_table "character_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "character_classes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_character_classes_on_name"
   end
 
-  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "race"
     t.string "character_class"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.index ["player_id"], name: "index_characters_on_player_id"
   end
 
-  create_table "feats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "feats", force: :cascade do |t|
     t.string "name"
     t.string "use_type"
     t.text "description"
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "inscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "spell_id"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.index ["spell_id"], name: "index_inscriptions_on_spell_id"
   end
 
-  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone"
@@ -67,14 +70,14 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "races", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "races", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_races_on_name"
   end
 
-  create_table "spell_books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "spell_books", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "character_id"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.index ["character_id"], name: "index_spell_books_on_character_id"
   end
 
-  create_table "spells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "spells", force: :cascade do |t|
     t.string "name"
     t.integer "level"
     t.string "school"
@@ -97,7 +100,7 @@ ActiveRecord::Schema.define(version: 20171222054400) do
     t.boolean "ritual"
   end
 
-  create_table "trainings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "trainings", force: :cascade do |t|
     t.integer "character_id"
     t.integer "feat_id"
     t.integer "custom_uses_count"
